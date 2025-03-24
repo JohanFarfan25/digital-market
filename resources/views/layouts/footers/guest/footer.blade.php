@@ -6,9 +6,9 @@
                     © <span id="current-year"></span>, Hecho con <i class="fa fa-heart"></i> en
                     <a href="#" class="font-weight-bold" target="_blank">Colombia </a>&amp; 
                     <a style="color: #252f40;" href="#" class="font-weight-bold ml-1" target="_blank">
-                        Digital Market
+                        Johan Alexander Farfán Sierra
                     </a>
-                    Para una mejor web.
+                    Para el Politécnico Gran Colombiano.
                 </div>
             </div>
         @endif
