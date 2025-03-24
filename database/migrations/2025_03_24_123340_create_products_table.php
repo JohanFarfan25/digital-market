@@ -20,7 +20,6 @@ return new class extends Migration
             $table->decimal('sale_price', 10, 2);
             $table->string('supplier')->nullable();
             $table->longText('image')->nullable();
-            $table->unsignedBigInteger('warehouse_id');
             $table->integer('quantity');
             $table->integer('in_stock')->default(0);
             $table->timestamp('created_at')->useCurrent();
