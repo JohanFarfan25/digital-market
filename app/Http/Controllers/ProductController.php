@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+    /**
+     * Vista de Productos
+     * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
+     */
     public function index()
     {
         $suppliers = [];
@@ -17,12 +21,20 @@ class ProductController extends Controller
     }
 
 
+    /**
+     * Vista creación de Producto
+     * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
+     */
     public function viewCreate()
     {
         return getResponse('products.crear-producto');
     }
 
 
+    /**
+     * Creación de Producto
+     * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
+     */
     public function create(Request $request)
     {
 
@@ -54,12 +66,20 @@ class ProductController extends Controller
     }
 
 
+    /**
+     * Vista de Producto
+     * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
+     */
     public function view($id)
     {
         $product = Product::find($id);
         return getResponse('products.vista-producto', compact('product'));
     }
 
+    /**
+     * Edición de Producto
+     * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
+     */
     public function update($id, Request $request)
     {
         $product = Product::find($id);
@@ -86,6 +106,10 @@ class ProductController extends Controller
     }
 
 
+    /**
+     * Eliminación de Producto
+     * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
+     */
     public function destroy($id)
     {
         $product = Product::find($id);
