@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->string('uuid')->unique();
             $table->double('amount', 26, 2)->nullable();
-            $table->unsignedBigInteger('payment_type_id');
+            $table->string('payment_type');
             $table->text('note')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->unsignedBigInteger('box_id')->nullable();
@@ -31,7 +31,6 @@ return new class extends Migration {
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->timestamp('deleted_at')->nullable();
 
-            $table->foreign('payment_type_id')->references('id')->on('payment_type');
             $table->foreign('registered_by')->references('id')->on('users');
             $table->foreign('edited_by')->references('id')->on('users');
             $table->foreign('transaction_id')->references('id')->on('transactions');
