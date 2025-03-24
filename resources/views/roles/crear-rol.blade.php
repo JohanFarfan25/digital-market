@@ -27,6 +27,7 @@
                     <form action="/crear-rol" method="POST" enctype="multipart/form-data" role="form text-left">
                         @csrf
                         <div class="row">
+                            <!-- Input para el Nombre-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="role-name" class="form-control-label">{{ __('Nombre') }}</label>

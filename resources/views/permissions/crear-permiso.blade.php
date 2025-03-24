@@ -3,8 +3,8 @@
 @section('content')
     <div>
         <div class="container-fluid">
-            <div class="page-header min-height-200 border-radius-xl mt-4"
-                style="linear-gradient(90deg, rgba(232,232,240,1) 57%, rgba(174,232,245,1) 100%); background-position-y: 50%;">
+            <div class="page-header min-height-200 border-radius-xl mt-4 page-header-background-linear-gradient"
+                style="background-position-y: 50%;">
             </div>
             <div class="card card-body blur shadow-blur mx-4 mt-n5">
                 <div class="row gx-4">
@@ -29,6 +29,7 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
+                            <!-- Input para nombre del permiso -->
                                 <div class="form-group">
                                     <label for="permission-name" class="form-control-label">{{ __('Nombre') }}</label>
                                     <div class="@error('permission.name')border border-danger rounded-3 @enderror">

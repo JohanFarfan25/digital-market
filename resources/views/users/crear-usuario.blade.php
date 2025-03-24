@@ -31,10 +31,8 @@
                             <div class="col-md-6">
                                 <!-- Contenedor para la vista previa -->
                                 <div class="form-group text-center">
-                                    <div id="image-preview" class="border p-2 rounded d-inline-block"
-                                        style="width: 200px; height: 200px; overflow: hidden;">
-                                        <img id="preview-image" src="" alt="Preview" class="img-fluid"
-                                            style="display: none; max-width: 100%; max-height: 100%;">
+                                    <div id="image-preview" class="border p-2 rounded d-inline-block container-preview-image">
+                                        <img id="preview-image" src="" alt="Preview" class="img-fluid preview-image preview-image-disabled">
                                     </div>
                                 </div>
                                 <!-- Input para cargar imagen -->
@@ -60,6 +58,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                 <!-- Input para el Nombre-->
                                 <div class="form-group">
                                     <label for="user-name" class="form-control-label">{{ __('Nombre') }}</label>
                                     <div class="@error('user.name')border border-danger rounded-3 @enderror">
@@ -72,6 +71,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                 <!-- Input para el Correo-->
                                 <div class="form-group">
                                     <label for="user-email" class="form-control-label">{{ __('Correo') }}</label>
                                     <div class="@error('email')border border-danger rounded-3 @enderror">
@@ -86,6 +86,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
+                                 <!-- Input para el Teléfono-->
                                 <div class="form-group">
                                     <label for="user.phone" class="form-control-label">{{ __('Teléfono') }}</label>
                                     <div class="@error('user.phone')border border-danger rounded-3 @enderror">
@@ -97,6 +98,7 @@
                                     </div>
                                 </div>
                             </div>
+                                 <!-- Input para el Dirección-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="user.location" class="form-control-label">{{ __('Dirección') }}</label>
@@ -108,6 +110,7 @@
                             </div>
                         </div>
                         <div class="row">
+                             <!-- Input para el Rol-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="user.rol_id" class="form-control-label">{{ __('Rol') }}</label>
@@ -128,6 +131,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                 <!-- Input para el Contraseña -->
                                 <div class="form-group">
                                     <label for="user.password" class="form-control-label">{{ __('Contraseña') }}</label>
                                     <div class="@error('user.password')border border-danger rounded-3 @enderror">

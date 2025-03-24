@@ -9,7 +9,8 @@ use App\Http\Controllers\{
 	ImageUploadController,
 	SessionsController,
 	ResetController,
-	ChangePasswordController
+	ChangePasswordController,
+	ProductController
 };
 
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/crear-permiso', [PermissionController::class, 'viewCreate'])->name('crear-permiso');
 	Route::post('/crear-permiso', [PermissionController::class, 'create'])->name('crear-permiso');
 	Route::get('/eliminar-permiso/{id}', [PermissionController::class, 'destroy'])->name('eliminar-permiso');
+
+	//Productos
+	Route::get('/productos', [ProductController::class, 'index'])->name('productos');
+	Route::get('/crear-producto', [ProductController::class, 'viewCreate'])->name('crear-producto');
+	Route::post('/crear-producto', [ProductController::class, 'create'])->name('crear-producto');
+	Route::get('/vista-producto/{id}', [ProductController::class, 'view'])->name('vista-producto');
+	Route::post('/vista-producto/{id}', [ProductController::class, 'update'])->name('vista-producto');
+	Route::get('/eliminar-producto/{id}', [ProductController::class, 'destroy'])->name('eliminar-producto');
 });
 
 

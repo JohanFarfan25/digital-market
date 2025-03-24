@@ -40,16 +40,14 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
-                                <!-- Contenedor para la vista previa -->
+                                <!-- Contenedor para la vista previa de la imagen-->
                                 <div class="form-group text-center">
-                                    <div id="image-preview" class="border p-2 rounded d-inline-block"
-                                        style="width: 200px; height: 200px; overflow: hidden;">
+                                    <div id="image-preview" class="border p-2 rounded d-inline-block container-preview-image-user_view">
                                         @if (!empty($user->profile_picture))
                                             <img id="preview-image" src="{{ asset($user->profile_picture) }}" alt="Preview"
-                                                class="img-fluid" style="max-width: 100%; max-height: 100%;">
+                                                class="img-fluid preview-image">
                                         @else
-                                            <img id="preview-image" src="" alt="Preview" class="img-fluid"
-                                                style="display: none; max-width: 100%; max-height: 100%;">
+                                            <img id="preview-image" src="" alt="Preview" class="img-fluid preview-image preview-image-disabled">
                                         @endif
                                     </div>
                                 </div>
@@ -67,7 +65,6 @@
                                 </div>
                             </div>
 
-                            <!-- Otros campos de formulario -->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="about">{{ 'Acerca de mi' }}</label>
@@ -79,6 +76,7 @@
                             </div>
                         </div>
                         <div class="row">
+                             <!-- Input para el Nombre-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="user-name" class="form-control-label">{{ __('Nombre') }}</label>
@@ -92,6 +90,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                 <!-- Input para el Correo-->
                                 <div class="form-group">
                                     <label for="user-email" class="form-control-label">{{ __('Correo') }}</label>
                                     <div class="@error('email') border border-danger rounded-3 @enderror">
@@ -107,6 +106,7 @@
 
                         <div class="row">
                             <div class="col-md-6">
+                                 <!-- Input para el Teléfono-->
                                 <div class="form-group">
                                     <label for="user-phone" class="form-control-label">{{ __('Teléfono') }}</label>
                                     <div class="@error('phone') border border-danger rounded-3 @enderror">
@@ -118,6 +118,7 @@
                                     </div>
                                 </div>
                             </div>
+                                 <!-- Input para el Dirección-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="user-location" class="form-control-label">{{ __('Dirección') }}</label>
@@ -130,6 +131,7 @@
                             </div>
                             @role(env('ROLE_SUPER_ADMIN'))
                                 <div class="col-md-6">
+                                     <!-- Input para los roles-->
                                     <div class="form-group">
                                         <label for="roles" class="form-control-label">{{ __('Roles') }}</label>
                                         <select class="form-control" name="roles[]" id="roles" multiple

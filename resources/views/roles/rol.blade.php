@@ -22,10 +22,11 @@
             <div class="col-12">
                 <div class="card mb-4 mx-4">
                     <div class="card-header pb-0">
+                        <!-- Buscador de roles-->
                         <div class="d-flex flex-row justify-content-between">
                             <div style="width: 50%;">
                                 <input type="text" id="searchInput" class="form-control me-3"
-                                    placeholder="Search roles..." aria-label="Search">
+                                    placeholder="Buscar roles..." aria-label="Search">
                             </div>
                             <div style="width: 25%; text-align: right;">
                                 <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0"
@@ -89,13 +90,14 @@
                                                     class="text-secondary text-xs font-weight-bold">{{ $role->created_at->format('d/m/Y') }}</span>
                                             </td>
                                             @role(env('ROLE_SUPER_ADMIN'))
+                                                <!-- Ver rol -->
                                                 <td class="text-center">
                                                     <a href="/vista-rol/{{ $role->id }}" class="mx-3"
                                                         data-bs-toggle="tooltip" data-bs-original-title="View Role">
                                                         <span class="badge badge-sm bg-gradient-success">Ver</span>
                                                     </a>
                                                 </td>
-
+                                                <!-- Eliminar rol -->
                                                 <td class="text-center">
                                                     <a href="/eliminar-rol/{{ $role->id }}" class="mx-3"
                                                         data-bs-toggle="tooltip" data-bs-original-title="Delete Role">

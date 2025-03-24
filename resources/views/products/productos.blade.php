@@ -1,4 +1,5 @@
 @extends('layouts.user_type.auth')
+
 @section('content')
     <div>
         <div class="container-fluid">
@@ -10,7 +11,7 @@
                     <div class="col-auto my-auto">
                         <div class="h-100">
                             <h5 class="mt-2">
-                                Permisos
+                                Productos
                             </h5>
                         </div>
                     </div>
@@ -21,12 +22,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4 mx-4">
-                    <!-- Buscador de permisos -->
                     <div class="card-header pb-0">
                         <div class="d-flex flex-row justify-content-between">
                             <div style="width: 50%;">
                                 <input type="text" id="searchInput" class="form-control me-3"
-                                    placeholder="Buscar permisos..." aria-label="Search">
+                                    placeholder="Buscar productos..." aria-label="Search">
                             </div>
                             <div style="width: 25%; text-align: right;">
                                 <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0"
@@ -34,32 +34,44 @@
                             </div>
                             <div style="width: 25%; text-align: right;">
                                 @role(env('ROLE_SUPER_ADMIN'))
-                                    <a href="/crear-permiso" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp;
-                                        Nuevo Permiso</a>
+                                    <a href="/crear-producto" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp;
+                                        Nuevo Producto</a>
                                 @endrole
                             </div>
                         </div>
                     </div>
-                    <!-- Lista permisos -->
+                    <!-- Lista de productos -->
                     <div class="card-body px-0 pt-0 pb-2 mt-3">
                         <div class="table-responsive p-0">
-                            <table id="example" class="table  align-items-center mb-0">
+                            <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             ID
                                         </th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Imagen
+                                        </th>
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Nombre
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Nombre de guardia
+                                            Código
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Fecha de Creación
+                                            Precio de compra
+                                        </th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Precio de venta
+                                        </th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Proveedor
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -68,25 +80,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($permissions as $index => $permission)
+                                    @foreach ($products as $index => $product)
                                         <tr>
-                                            <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $permission->id }}</p>
+                                            <td class="ps-4">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $product->id }}</p>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <img src="{{ $product->image ?? asset($product->image) }}"
+                                                        alt="Product Image" class="img-fluid avatar avatar-sm me-3">
+                                                </div>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $permission->name }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $product->name }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $permission->guard_name }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $product->code }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold">{{ $permission->created_at->format('d/m/Y') }}</span>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $product->purchase_price }}</p>
                                             </td>
-                                            <!-- Eliminar permiso-->
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $product->sale_price }}</p>
+                                            </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $product->supplier }}</p>
+                                            </td>
                                             <td class="text-center">
                                                 @role(env('ROLE_SUPER_ADMIN'))
-                                                    <a href="/eliminar-permiso/{{ $permission->id }}" class="mx-3"
+                                                    <a href="/vista-producto/{{ $product->id }}" class="mx-3"
+                                                        data-bs-toggle="tooltip" data-bs-original-title="Edit User">
+                                                        <span class="badge badge-sm bg-gradient-success">Ver</span>
+                                                    </a>
+
+                                                    <a href="/eliminar-producto/{{ $product->id }}" class="mx-3"
                                                         data-bs-toggle="tooltip" data-bs-original-title="Delete User">
                                                         <span class="badge badge-sm bg-gradient-secondary">Eliminar</span>
                                                     </a>
@@ -104,7 +131,6 @@
         </div>
     </div>
     <script>
-        //SECCIÓN PARA LA BÚSQUEDA EN TIEMPO REAL ***********************
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('searchInput');
             const tableRows = document.querySelectorAll('tbody tr');
@@ -133,7 +159,7 @@
                     icon: result?.status == 'error' ? 'error' : 'success',
                     text: result?.message,
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: result?.status == 'error' ? 5000 : 2000,
                 });
             }
         @endif

@@ -36,6 +36,7 @@
                                     <form role="form" method="POST" action="/session">
                                         @csrf
                                         <label>Correo</label>
+                                        <!-- Input para el emial-->
                                         <div class="mb-3">
                                             <input type="email" class="form-control" name="email" id="email"
                                                 placeholder="Email" aria-label="Email" aria-describedby="email-addon">
@@ -43,6 +44,7 @@
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
+                                        <!-- Input para la contraseña-->
                                         <label>Contaseña</label>
                                         <div class="mb-3 position-relative">
                                             <input type="password" class="form-control pe-5" name="password" id="password"

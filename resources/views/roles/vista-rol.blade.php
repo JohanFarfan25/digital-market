@@ -33,6 +33,7 @@
                         role="form text-left">
                         @csrf
                         <div class="row">
+                            <!-- Input para el Nombre-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="role-name" class="form-control-label">{{ __('Rol') }}</label>
@@ -77,7 +78,6 @@
         </div>
     </div>
     <script>
-        
         //SELECT2 ***********************
         $(document).ready(function() {
             $('#permissions').select2({
