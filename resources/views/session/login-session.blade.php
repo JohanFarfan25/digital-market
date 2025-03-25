@@ -13,7 +13,7 @@
                                 <div class="card-header pb-0 text-left bg-transparent">
                                     <h3 class="font-weight-bolder text-info text-gradient ">Bienvenido</h3>
                                 </div>
-                                <div style=" width: 100%; max-width: 400px;" class="col-xl-4 col-lg-5 col-md-6">
+                                <div  class="col-xl-4 col-lg-5 col-md-6 svg-logo-company">
                                     <svg viewBox="0 0 500 120" preserveAspectRatio="xMidYMid meet"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <text x="20" y="80" font-family="Arial, sans-serif" font-size="64"

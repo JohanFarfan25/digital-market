@@ -101,6 +101,8 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::post('/contrasena-olvidada', [ResetController::class, 'sendEmail']);
 	Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 	Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
+	Route::get('/crear-usuario-invitado', [UserManagementController::class, 'viewCreateGuest'])->name('crear-usuario-invitado');
+	Route::post('/crear-usuario-invitado', [UserManagementController::class, 'storeGuest'])->name('crear-usuario-invitado');
 });
 
 Route::get('/login', function () {

@@ -18,7 +18,7 @@ class UserManagementController extends Controller
     /**
      * Redirecciona a la vista de usuarios
      * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
-     */ 
+     */
     public function index()
     {
         $users = User::where('id', '!=', Auth::user()->id)
@@ -28,11 +28,11 @@ class UserManagementController extends Controller
         return view('users.usuarios', compact('users'));
     }
 
-    
+
     /**
      * Redirecciona a la vista de usuario
      * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
-     */ 
+     */
     public function view($id, Request $request)
     {
         try {
@@ -91,11 +91,21 @@ class UserManagementController extends Controller
     /**
      * Redirecciona a la vista de crear usuario
      * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
-     */ 
+     */
     public function viewCreate()
     {
         $roles = Role::all();
         return view('users/crear-usuario', compact('roles'));
+    }
+
+    /**
+     * Redirecciona a la vista de crear usuario invitado
+     * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
+     */
+    public function viewCreateGuest()
+    {
+        $roles = Role::all();
+        return view('users/crear-usuario-invitado', compact('roles'));
     }
 
 
@@ -103,7 +113,7 @@ class UserManagementController extends Controller
     /**
      * Creación de usuario
      * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
-     */ 
+     */
     public function store()
     {
         try {
@@ -151,7 +161,36 @@ class UserManagementController extends Controller
             }
         } catch (\Exception $e) {
             $roles = Role::all();
-            return getResponse('users/crear-usuario', compact('roles'),'error', $e->getMessage());
+            return getResponse('users/crear-usuario', compact('roles'), 'error', $e->getMessage());
+        }
+    }
+
+    /**
+     * Creación de usuario Invitado
+     * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
+     */
+    public function storeGuest()
+    {
+        try {
+            $attributes = request()->validate([
+                'name' => ['required', 'max:50'],
+                'email' => ['required', 'email', 'max:50', Rule::unique('users', 'email')],
+                'password' => ['required', 'min:5', 'max:20'],
+                'phone'     => ['max:50'],
+                'location' => ['max:70'],
+            ]);
+            $attributes['rol_id'] = 1;
+            $attributes['password'] = bcrypt($attributes['password']);
+
+            $user = User::create($attributes);
+            if (isset($user->id)) {
+                return getRedirect('login');
+            } else {
+                return getResponse('users/crear-usuario-invitado', compact('user'), 'error', $user->getMessage());
+            }
+        } catch (\Exception $e) {
+            $user = [];
+            return getResponse('users/crear-usuario-invitado', compact('user'), 'error', $e->getMessage());
         }
     }
 
@@ -159,7 +198,7 @@ class UserManagementController extends Controller
     /**
      * Actualización de usuario
      * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
-     */ 
+     */
     public function update(Request $request)
     {
         try {
@@ -202,7 +241,7 @@ class UserManagementController extends Controller
     /**
      * Eliminación de usuario
      * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
-     */ 
+     */
     public function destroy($id)
     {
         $user = User::find($id);

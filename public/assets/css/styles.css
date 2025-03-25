@@ -4819,6 +4819,46 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
         /* Transiciones suaves */
 }
 
+/* Estilo para el logo */
+.svg-logo-company {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Estilo base de la mano */
+.pointing-hand {
+    color: rgb(23, 193, 232) !important;
+    font-size: 1.3em;
+    display: inline-block;
+    transform-origin: 70% 70%;
+    /* Punto de rotación en la parte inferior derecha */
+    animation: wave-hand 0.7s infinite ease-in-out;
+}
+
+/* Animación de movimiento */
+@keyframes wave-hand {
+    0%, 100% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(3px) rotate(10deg);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(15deg);
+    }
+
+    75% {
+        transform: translateX(3px) rotate(10deg);
+    }
+}
+
+/* Efecto al pasar el mouse */
+.nav-link:hover .pointing-hand {
+    animation: wave-hand 0.7s infinite ease-in-out;
+}
+
 /* Estilos para usuarios que prefieren reducir el movimiento */
 @media (prefers-reduced-motion:reduce) {
     .nav-link {

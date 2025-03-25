@@ -41,7 +41,7 @@
 
                 <!-- Rol del usuario -->
                 <div class="p-2 nav-item d-flex align-items-center" style="font-weight: 600;">
-                    ({{ auth()->user()->getRoleNames()->first() }})
+                    ({{ auth()->user()->getRoleNames()->first()  ?? 'Invitado' }})
                 </div>
 
                 <!-- Imagen de perfil -->
