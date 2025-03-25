@@ -113,12 +113,12 @@
                                                 <p class="text-xs font-weight-bold mb-0">{{ $product->supplier }}</p>
                                             </td>
                                             <td class="text-center">
-                                                @role(env('ROLE_SUPER_ADMIN'))
-                                                    <a href="/vista-producto/{{ $product->id }}" class="mx-3"
-                                                        data-bs-toggle="tooltip" data-bs-original-title="Edit User">
-                                                        <span class="badge badge-sm bg-gradient-success">Ver</span>
-                                                    </a>
 
+                                                <a href="/vista-producto/{{ $product->id }}" class="mx-3"
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit User">
+                                                    <span class="badge badge-sm bg-gradient-success">Ver</span>
+                                                </a>
+                                                @role(env('ROLE_SUPER_ADMIN'))
                                                     <a href="/eliminar-producto/{{ $product->id }}" class="mx-3"
                                                         data-bs-toggle="tooltip" data-bs-original-title="Delete User">
                                                         <span class="badge badge-sm bg-gradient-secondary">Eliminar</span>

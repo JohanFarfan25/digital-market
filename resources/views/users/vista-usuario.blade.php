@@ -42,12 +42,14 @@
                             <div class="col-md-6">
                                 <!-- Contenedor para la vista previa de la imagen-->
                                 <div class="form-group text-center">
-                                    <div id="image-preview" class="border p-2 rounded d-inline-block container-preview-image-user_view">
+                                    <div id="image-preview"
+                                        class="border p-2 rounded d-inline-block container-preview-image-user_view">
                                         @if (!empty($user->profile_picture))
                                             <img id="preview-image" src="{{ asset($user->profile_picture) }}" alt="Preview"
                                                 class="img-fluid preview-image">
                                         @else
-                                            <img id="preview-image" src="" alt="Preview" class="img-fluid preview-image preview-image-disabled">
+                                            <img id="preview-image" src="" alt="Preview"
+                                                class="img-fluid preview-image preview-image-disabled">
                                         @endif
                                     </div>
                                 </div>
@@ -76,7 +78,7 @@
                             </div>
                         </div>
                         <div class="row">
-                             <!-- Input para el Nombre-->
+                            <!-- Input para el Nombre-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="user-name" class="form-control-label">{{ __('Nombre') }}</label>
@@ -90,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                 <!-- Input para el Correo-->
+                                <!-- Input para el Correo-->
                                 <div class="form-group">
                                     <label for="user-email" class="form-control-label">{{ __('Correo') }}</label>
                                     <div class="@error('email') border border-danger rounded-3 @enderror">
@@ -106,7 +108,7 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                 <!-- Input para el Teléfono-->
+                                <!-- Input para el Teléfono-->
                                 <div class="form-group">
                                     <label for="user-phone" class="form-control-label">{{ __('Teléfono') }}</label>
                                     <div class="@error('phone') border border-danger rounded-3 @enderror">
@@ -118,7 +120,7 @@
                                     </div>
                                 </div>
                             </div>
-                                 <!-- Input para el Dirección-->
+                            <!-- Input para el Dirección-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="user-location" class="form-control-label">{{ __('Dirección') }}</label>
@@ -131,7 +133,7 @@
                             </div>
                             @role(env('ROLE_SUPER_ADMIN'))
                                 <div class="col-md-6">
-                                     <!-- Input para los roles-->
+                                    <!-- Input para los roles-->
                                     <div class="form-group">
                                         <label for="roles" class="form-control-label">{{ __('Roles') }}</label>
                                         <select class="form-control" name="roles[]" id="roles" multiple
@@ -152,10 +154,12 @@
                                 </div>
                             @endrole
                         </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="submit"
-                                class="btn bg-gradient-info btn-md mt-4 mb-4">{{ __('Guardar') }}</button>
-                        </div>
+                        @role(env('ROLE_SUPER_ADMIN'))
+                            <div class="d-flex justify-content-end">
+                                <button type="submit"
+                                    class="btn bg-gradient-info btn-md mt-4 mb-4">{{ __('Guardar') }}</button>
+                            </div>
+                        @endrole
                     </form>
 
                 </div>

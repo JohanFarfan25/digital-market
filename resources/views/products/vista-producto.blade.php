@@ -215,10 +215,12 @@
                                 </div>
                             @endrole
                         </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="submit"
-                                class="btn bg-gradient-info btn-md mt-4 mb-4">{{ 'Guardar' }}</button>
-                        </div>
+                        @role(env('ROLE_SUPER_ADMIN'))
+                            <div class="d-flex justify-content-end">
+                                <button type="submit"
+                                    class="btn bg-gradient-info btn-md mt-4 mb-4">{{ 'Guardar' }}</button>
+                            </div>
+                        @endrole
                     </form>
 
                 </div>

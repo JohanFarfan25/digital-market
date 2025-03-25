@@ -166,20 +166,22 @@
                                 $paymStatus = ['completed', 'cancelled'];
                             @endphp
                             @if (!in_array($transaction->transaction_status, $paymStatus))
-                                <div class="d-flex justify-content-space-between">
-                                    <div>
-                                        <a href="/proceso-de-pago/{{ $transaction->id }}" class="mx-3 mt-2"
-                                            data-bs-toggle="tooltip" data-bs-original-title="Pay">
-                                            <span class="badge badge-sm bg-gradient-success">Realizar transacción</span>
+                                @role(env('ROLE_SUPER_ADMIN'))
+                                    <div class="d-flex justify-content-space-between">
+                                        <div>
+                                            <a href="/proceso-de-pago/{{ $transaction->id }}" class="mx-3 mt-2"
+                                                data-bs-toggle="tooltip" data-bs-original-title="Pay">
+                                                <span class="badge badge-sm bg-gradient-success">Realizar transacción</span>
+                                            </a>
+                                        </div>
+                                        <a href="/cancelar-transaccion/{{ $transaction->id }}" class="mx-3 "
+                                            data-bs-toggle="tooltip" data-bs-original-title="Cancel">
+                                            <span class="badge badge-sm bg-gradient-danger">Cancelar</span>
                                         </a>
+                                        <div>
+                                        </div>
                                     </div>
-                                    <a href="/cancelar-transaccion/{{ $transaction->id }}" class="mx-3 "
-                                        data-bs-toggle="tooltip" data-bs-original-title="Cancel">
-                                        <span class="badge badge-sm bg-gradient-danger">Cancelar</span>
-                                    </a>
-                                    <div>
-                                    </div>
-                                </div>
+                                @endrole
                             @endif
                         </ul>
                         <hr>
