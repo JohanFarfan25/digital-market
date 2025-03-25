@@ -41,13 +41,20 @@
 
                 <!-- Rol del usuario -->
                 <div class="p-2 nav-item d-flex align-items-center" style="font-weight: 600;">
-                    ({{ auth()->user()->getRoleNames()->first()  ?? 'Invitado' }})
+                    ({{ auth()->user()->getRoleNames()->first() ?? 'Invitado' }})
                 </div>
 
                 <!-- Imagen de perfil -->
                 <div class="p-2 nav-link text-body font-weight-bold px-0">
-                    <img id="preview-image" src="{{ asset(auth()->user()->profile_picture) }}" alt="Profile"
-                        class="img-fluid rounded-circle" style="max-width: 50px; height: auto;">
+                    @if (auth()->user()->profile_picture)
+                        <img src="{{ asset(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->name }}"
+                            class="img-fluid rounded-circle img-avatar">
+                    @else
+                        <div
+                            class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center img-avatar-default">
+                            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                        </div>
+                    @endif
                 </div>
             </div>
             <ul class="navbar-nav justify-content-end">
