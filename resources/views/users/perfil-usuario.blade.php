@@ -32,7 +32,7 @@
             <div class="card">
                 <div class="card-body pt-4 p-5">
                     <div style="width: 25%; text-align: left;">
-                        <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0"
+                        <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0 btn-responsive"
                             type="button">Regresar</a>
                     </div>
                     <form action="/perfil-usuario" method="POST" role="form text-left" enctype="multipart/form-data"

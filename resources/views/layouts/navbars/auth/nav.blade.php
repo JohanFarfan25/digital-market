@@ -11,18 +11,22 @@
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
             <div class="ms-md-3 pe-md-3 d-flex flex-column flex-md-row align-items-center">
                 <!-- Botón: Generar Compra -->
-                <div class="p-2 nav-item d-flex align-items-center" style="font-weight: 600;">
+                <div class="nav-item btn-billing">
                     @role(env('ROLE_SUPER_ADMIN'))
-                        <a href="#" class=" btn bg-gradient-secondary btn-xs mb-0" style="font-size:70%;"
-                            type="button">&nbsp; Generar Compra</a>
+                        <a href="{{ url('facturacion-compra') }}"
+                            class="{{ Request::is('facturacion-compra') ? 'active' : '' }} btn bg-gradient-secondary btn-responsive">
+                            Generar Compra
+                        </a>
                     @endrole
                 </div>
 
                 <!-- Botón: Generar Venta -->
-                <div class="p-2 nav-item d-flex align-items-center" style="font-weight: 600;">
+                <div class="nav-item btn-purchase">
                     @role(env('ROLE_SUPER_ADMIN'))
-                        <a href="#" class=" btn bg-gradient-info btn-xs mb-0" style="font-size:70%;"
-                            type="button">&nbsp; Generar Venta</a>
+                        <a href="{{ url('facturacion') }}"
+                            class="{{ Request::is('facturacion') ? 'active' : '' }} btn bg-gradient-info btn-responsive">
+                            Generar Venta
+                        </a>
                     @endrole
                 </div>
 

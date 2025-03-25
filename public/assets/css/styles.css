@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* Definición de variables CSS personalizadas en el ámbito global */
+/* Definición de variables colores CSS personalizadas en el ámbito global */
 :root {
     --bs-blue: #63b3ed;
     --bs-indigo: #596cff;
@@ -2831,6 +2831,71 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
     /* Opacidad reducida */
     pointer-events: none
         /* Desactiva los eventos del puntero */
+}
+
+/* Estilos para botones de pagos */
+.btn-billing {
+    font-weight: 600;
+    /* Establece el grosor de la fuente a seminegrita (600) */
+}
+
+.btn-billing a {
+    font-size: 70%;
+    /* Reduce el tamaño de fuente al 70% solo para los enlaces dentro del botón */
+}
+
+.btn-purchase {
+    font-weight: 600;
+    /* Establece el mismo grosor de fuente seminegrita (600) */
+}
+
+.btn-purchase a {
+    font-size: 70%;
+    /* Igual que arriba, reduce tamaño de fuente para enlaces */
+}
+
+/* Estilos base para los botones */
+.btn-billing, .btn-purchase {
+    font-weight: 600;
+    margin: 0.25rem;
+}
+
+.btn-responsive {
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 0.25rem;
+    display: inline-block;
+    text-align: center;
+}
+
+
+/* Media queries para diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    .btn-responsive {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+        width: 100%; /* Ocupa todo el ancho disponible en móviles */
+        margin: 0.2rem 0;
+    }
+    .buscador {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-responsive {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.65rem;
+        margin-left: 6px;
+    }
+    .buscador {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 /* Estilos para controles de rango */
@@ -24514,5 +24579,127 @@ span.flatpickr-weekday {
         /* Opacidad final */
         transform: translateZ(0);
         /* Transformación */
+    }
+}
+
+/* Estilos vista de la  transacción */
+
+.transaction-status-reson-rejection {
+    font-size: 80%;
+    /* Reduce el tamaño de fuente al 80% del tamaño base */
+    text-align: center;
+    /* Centra el texto horizontalmente */
+    color: red;
+    /* Establece el color del texto en rojo */
+}
+
+
+.transaction-detail-product-item {
+    line-height: 1.1;
+    /* Establece un interlineado ajustado (110% del tamaño de fuente) */
+    font-size: 13px;
+    /* Tamaño de fuente fijo de 13 píxeles */
+    margin-top: 1.5rem;
+    /* Margen superior de 1.5 unidades rem (relativas al tamaño de fuente raíz) */
+}
+
+/* Estilos para el detalle de los pagos */
+.payment-details {
+    min-height: 100px;
+    /* Altura mínima de 100px */
+    max-height: 300px;
+    /* Altura máxima de 300px */
+    overflow-y: auto;
+    /* Habilita scroll vertical si el contenido excede la altura */
+    margin-left: 20px;
+    /* Margen izquierdo de 20px */
+}
+
+.payment-datail-item-icon-cash {
+    color: #82d616;
+    /* Color verde claro para iconos de efectivo */
+}
+
+.payment-datail-item-icon-card {
+    color: #007bff;
+    /* Color azul estándar para iconos de tarjeta */
+}
+
+.payment-datail-item {
+    margin-top: 4px;
+    /* Margen superior pequeño */
+    border: solid #b7b7b7;
+    /* Borde sólido gris */
+    border-radius: 20px;
+    /* Bordes muy redondeados */
+    margin-bottom: 5px;
+    /* Margen inferior pequeño */
+    text-align: justify;
+    /* Texto justificado */
+    padding: 12px;
+    /* Relleno interno de 12px */
+}
+
+.payment-datail-item p {
+    font-size: 90%;
+    /* Tamaño de fuente al 90% del tamaño base */
+}
+
+.payment-total {
+    font-size: 20px;
+    /* Tamaño de fuente grande para el total */
+}
+
+.payment-total-balance {
+    margin-left: 10px;
+    /* Margen izquierdo */
+    margin-top: 4px;
+    /* Margen superior pequeño */
+    color: #d21e1e;
+    /* Color rojo para saldos */
+}
+
+.payment-total p {
+    margin-left: 10px;
+    /* Margen izquierdo para párrafos dentro del total */
+    margin-top: 4px;
+    /* Margen superior pequeño */
+}
+
+.payment-hr {
+    margin-top: 12px;
+    /* Margen superior para separadores */
+}
+
+@media (max-width: 760px) {
+    .payment-datail-item {
+        width: 100%;
+        /* Ocupa todo el ancho disponible */
+        display: flex;
+        /* Usa flexbox */
+        flex-direction: column;
+        /* Disposición en columna */
+        font-size: 90%;
+        /* Tamaño de fuente reducido */
+    }
+
+    .payment-datail-item .d-flex {
+        width: 100%;
+        /* Ocupa todo el ancho */
+        flex-direction: column;
+        /* Disposición en columna */
+        align-items: flex-start;
+        /* Alineación a la izquierda */
+        font-size: 90%;
+        /* Tamaño de fuente reducido */
+    }
+
+    .payment-datail-item p {
+        width: 100%;
+        /* Ocupa todo el ancho */
+        text-align: left;
+        /* Alineación a la izquierda */
+        font-size: 90%;
+        /* Tamaño de fuente reducido */
     }
 }

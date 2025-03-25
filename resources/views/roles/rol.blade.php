@@ -22,22 +22,27 @@
             <div class="col-12">
                 <div class="card mb-4 mx-4">
                     <div class="card-header pb-0">
-                        <!-- Buscador de roles-->
-                        <div class="d-flex flex-row justify-content-between">
-                            <div style="width: 50%;">
-                                <input type="text" id="searchInput" class="form-control me-3"
-                                    placeholder="Buscar roles..." aria-label="Search">
+                        <div class="buscador">
+                            <!-- Buscador y Botón Regresar -->
+                            <div class="d-flex flex-row justify-content-between mb-3">
+                                <div class="flex-grow-1 me-3">
+                                    <input type="text" id="searchInput" class="form-control"
+                                        placeholder="Buscar roles..." aria-label="Search">
+                                </div>
+                                <div>
+                                    <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0">
+                                        Regresar
+                                    </a>
+                                </div>
                             </div>
-                            <div style="width: 25%; text-align: right;">
-                                <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0"
-                                    type="button">Regresar</a>
-                            </div>
-                            <div style="width: 25%; text-align: right;">
-                                @role(env('ROLE_SUPER_ADMIN'))
-                                    <a href="/crear-rol" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp;
-                                        Nuevo Rol</a>
-                                @endrole
-                            </div>
+
+                            @role(env('ROLE_SUPER_ADMIN'))
+                                <div class="w-100">
+                                    <a href="/crear-rol" class="btn bg-gradient-info btn-sm mb-0 w-100">
+                                        +&nbsp; Nuevo Rol
+                                    </a>
+                                </div>
+                            @endrole
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2 mt-3">

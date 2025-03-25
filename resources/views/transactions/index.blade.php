@@ -3,15 +3,14 @@
 @section('content')
     <div>
         <div class="container-fluid">
-            <div class="page-header min-height-200 border-radius-xl mt-4 page-header-background-linear-gradient"
-                style="background-position-y: 50%;">
+            <div class="page-header min-height-100 border-radius-xl mt-4 page-header-background-linear-gradient">
             </div>
             <div class="card card-body blur shadow-blur mx-4 mt-n5">
                 <div class="row gx-4">
                     <div class="col-auto my-auto">
                         <div class="h-100">
                             <h5 class="mt-2">
-                                Productos
+                                Transacciones
                             </h5>
                         </div>
                     </div>
@@ -22,31 +21,20 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4 mx-4">
+                    <!-- Buscar transacciones  -->
                     <div class="card-header pb-0">
-                        <div class="buscador">
-                            <!-- Buscador y Botón Regresar -->
-                            <div class="d-flex flex-row justify-content-between mb-3">
-                                <div class="flex-grow-1 me-3">
-                                    <input type="text" id="searchInput" class="form-control"
-                                        placeholder="Buscar productos..." aria-label="Search">
-                                </div>
-                                <div>
-                                    <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0">
-                                        Regresar
-                                    </a>
-                                </div>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div style="width: 50%;">
+                                <input type="text" id="searchInput" class="form-control me-3"
+                                    placeholder="Buscar transacciones..." aria-label="Search">
                             </div>
-
-                            @role(env('ROLE_SUPER_ADMIN'))
-                                <div class="w-100">
-                                    <a href="/crear-producto" class="btn bg-gradient-info btn-sm mb-0 w-100">
-                                        +&nbsp; Nuevo Producto
-                                    </a>
-                                </div>
-                            @endrole
+                            <div style="width: 50%; text-align: right;">
+                                <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0 btn-responsive"
+                                    type="button">Regresar</a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Lista de productos -->
+                    <!-- Lista de transacciónes  -->
                     <div class="card-body px-0 pt-0 pb-2 mt-3">
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0">
@@ -56,72 +44,83 @@
                                             ID
                                         </th>
                                         <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Imagen
-                                        </th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Nombre
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Type
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Código
+                                            Date
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Precio de compra
+                                            Quantity
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Precio de venta
+                                            Price
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Proveedor
+                                            Cliente
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Acciones
+                                            Creation Date
+                                        </th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Actions
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($products as $index => $product)
+                                    @foreach ($transactions as $index => $transaction)
                                         <tr>
                                             <td class="ps-4">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $product->id }}</p>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <img src="{{ $product->image ?? asset($product->image) }}"
-                                                        alt="Product Image" class="img-fluid avatar avatar-sm me-3">
-                                                </div>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $transaction->id }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $product->name }}</p>
+                                                @if ($transaction->type == 'sale')
+                                                    <p class="text-xs font-weight-bold mb-0">venta</p>
+                                                @else
+                                                    <p class="text-xs font-weight-bold mb-0">orden de compra</p>
+                                                @endif
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $product->code }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $transaction->date->format('d/m/Y') }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $product->purchase_price }}</p>
+                                                <p class="text-xs font-weight-bold mb-0"> {{ $transaction->quantity }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $product->sale_price }}</p>
+                                                <p class="text-xs font-weight-bold mb-0"> {{ $transaction->price }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $product->supplier }}</p>
+                                                @if ($transaction->type == 'sale')
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ $transaction->customer ?? 'N/A' }}</p>
+                                                @else
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ $transaction->supplier }}</p>
+                                                @endif
                                             </td>
-                                            <td class="text-center">
-                                                @role(env('ROLE_SUPER_ADMIN'))
-                                                    <a href="/vista-producto/{{ $product->id }}" class="mx-3"
-                                                        data-bs-toggle="tooltip" data-bs-original-title="Edit User">
-                                                        <span class="badge badge-sm bg-gradient-success">Ver</span>
-                                                    </a>
 
-                                                    <a href="/eliminar-producto/{{ $product->id }}" class="mx-3"
+                                            <td class="text-center">
+                                                <span
+                                                    class="text-secondary text-xs font-weight-bold">{{ $transaction->created_at->format('d/m/Y') }}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <!-- Ver transacción -->
+                                                <a href="/ver-transaccion/{{ $transaction->id }}" class="mx-3"
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit User">
+                                                    <span class="badge badge-sm bg-gradient-success">View</span>
+                                                </a>
+                                                @role(env('ROLE_SUPER_ADMIN'))
+                                                    <!-- Eliminar transacción -->
+                                                    <a href="/eliminar-transaccion/{{ $transaction->id }}" class="mx-3"
                                                         data-bs-toggle="tooltip" data-bs-original-title="Delete User">
-                                                        <span class="badge badge-sm bg-gradient-secondary">Eliminar</span>
+                                                        <span class="badge badge-sm bg-gradient-secondary">delete</span>
                                                     </a>
                                                 @endrole
                                             </td>
@@ -137,6 +136,7 @@
         </div>
     </div>
     <script>
+        //Buscador de transacciones
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('searchInput');
             const tableRows = document.querySelectorAll('tbody tr');
@@ -165,7 +165,7 @@
                     icon: result?.status == 'error' ? 'error' : 'success',
                     text: result?.message,
                     showConfirmButton: false,
-                    timer: result?.status == 'error' ? 5000 : 2000,
+                    timer: 2000
                 });
             }
         @endif

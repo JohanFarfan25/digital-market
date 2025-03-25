@@ -22,7 +22,7 @@
             <div class="card">
                 <div class="card-body pt-4 p-6 mt-4">
                     <div style="width: 25%; text-align: left;">
-                        <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-3"
+                        <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-3 "
                             type="button">Regresar</a>
                     </div>
                     <form action="/vista-producto/{{ $product->id }}" method="POST" enctype="multipart/form-data"

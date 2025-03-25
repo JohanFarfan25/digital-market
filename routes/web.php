@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\{
+	BillingController,
 	HomeController,
 	InfoUserController,
 	UserManagementController,
@@ -10,7 +11,9 @@ use App\Http\Controllers\{
 	SessionsController,
 	ResetController,
 	ChangePasswordController,
-	ProductController
+	ProductController,
+	SalesBoxController,
+	TransactionController
 };
 
 use Illuminate\Support\Facades\Route;
@@ -64,6 +67,24 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/vista-producto/{id}', [ProductController::class, 'view'])->name('vista-producto');
 	Route::post('/vista-producto/{id}', [ProductController::class, 'update'])->name('vista-producto');
 	Route::get('/eliminar-producto/{id}', [ProductController::class, 'destroy'])->name('eliminar-producto');
+
+	//Transacciones
+	Route::get('/transacciones', [TransactionController::class, 'index'])->name('transacciones');
+	Route::get('/ver-transaccion/{id}', [TransactionController::class, 'view'])->name('ver-transaccion');
+	Route::get('/eliminar-transaccion/{id}', [TransactionController::class, 'destroy'])->name('eliminar-transaccion');
+	Route::get('/cancelar-transaccion/{transaction_id}', [TransactionController::class, 'cancelled'])->name('cancelar-transaccion');
+
+	//facturación
+	Route::get('/facturacion', [BillingController::class, 'index'])->name('facturacion');
+	Route::get('/facturacion-compra', [BillingController::class, 'indexPurchase'])->name('facturacion-compra');
+	Route::post('/crear-transaccion', [BillingController::class, 'store'])->name('crear-transaccion');
+	Route::get('/buscar-productos', [BillingController::class, 'searchProducts'])->name('buscar-productos');
+	Route::get('/proceso-de-pago/{transaction_id}', [TransactionController::class, 'payment'])->name('proceso-de-pago');
+	Route::post('/proceso-de-pago', [TransactionController::class, 'paymentTransaction'])->name('payment.pay');
+
+	//Sales Box
+	Route::get('/box-validate-open', [SalesBoxController::class, 'validateBoxOpenByUser'])->name('box-validate-open');
+	Route::post('/box-open', [SalesBoxController::class, 'openBox'])->name('box-open');
 });
 
 

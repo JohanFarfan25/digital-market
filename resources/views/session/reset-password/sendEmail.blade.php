@@ -48,7 +48,7 @@
                                 </div>
                             </form>
                             <div class="text-left mt-4">
-                                <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0"
+                                <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0 btn-responsive"
                                     type="button">Regresar</a>
                             </div>
                         </div>
