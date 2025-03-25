@@ -95,20 +95,22 @@
                                                     class="text-secondary text-xs font-weight-bold">{{ $role->created_at->format('d/m/Y') }}</span>
                                             </td>
                                             @role(env('ROLE_SUPER_ADMIN'))
-                                                <!-- Ver rol -->
-                                                <td class="text-center">
-                                                    <a href="/vista-rol/{{ $role->id }}" class="mx-3"
-                                                        data-bs-toggle="tooltip" data-bs-original-title="View Role">
-                                                        <span class="badge badge-sm bg-gradient-success">Ver</span>
-                                                    </a>
-                                                </td>
-                                                <!-- Eliminar rol -->
-                                                <td class="text-center">
-                                                    <a href="/eliminar-rol/{{ $role->id }}" class="mx-3"
-                                                        data-bs-toggle="tooltip" data-bs-original-title="Delete Role">
-                                                        <span class="badge badge-sm bg-gradient-secondary">Eliminar</span>
-                                                    </a>
-                                                </td>
+                                                @if ($role->name != env('ROLE_SUPER_ADMIN'))
+                                                    <!-- Ver rol -->
+                                                    <td class="text-center">
+                                                        <a href="/vista-rol/{{ $role->id }}" class="mx-3"
+                                                            data-bs-toggle="tooltip" data-bs-original-title="View Role">
+                                                            <span class="badge badge-sm bg-gradient-success">Ver</span>
+                                                        </a>
+                                                    </td>
+                                                    <!-- Eliminar rol -->
+                                                    <td class="text-center">
+                                                        <a href="/eliminar-rol/{{ $role->id }}" class="mx-3"
+                                                            data-bs-toggle="tooltip" data-bs-original-title="Delete Role">
+                                                            <span class="badge badge-sm bg-gradient-secondary">Eliminar</span>
+                                                        </a>
+                                                    </td>
+                                                @endif
                                             @endrole
                                         </tr>
                                     @endforeach

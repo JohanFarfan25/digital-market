@@ -92,10 +92,12 @@
                                             <!-- Eliminar permiso-->
                                             <td class="text-center">
                                                 @role(env('ROLE_SUPER_ADMIN'))
-                                                    <a href="/eliminar-permiso/{{ $permission->id }}" class="mx-3"
-                                                        data-bs-toggle="tooltip" data-bs-original-title="Delete User">
-                                                        <span class="badge badge-sm bg-gradient-secondary">Eliminar</span>
-                                                    </a>
+                                                       @if ($permission->name != env('PERMISSION_SUPER_ADMIN'))
+                                                        <a href="/eliminar-permiso/{{ $permission->id }}" class="mx-3"
+                                                            data-bs-toggle="tooltip" data-bs-original-title="Delete User">
+                                                            <span class="badge badge-sm bg-gradient-secondary">Eliminar</span>
+                                                        </a>
+                                                    @endif
                                                 @endrole
                                             </td>
                                         </tr>
