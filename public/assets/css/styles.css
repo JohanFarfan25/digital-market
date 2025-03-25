@@ -2854,14 +2854,25 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
     /* Igual que arriba, reduce tamaño de fuente para enlaces */
 }
 
+.btn-box {
+    font-weight: 600;
+    /* Establece el grosor de la fuente a seminegrita (600) */
+}
+
+.btn-box a {
+    font-size: 70%;
+    /* Reduce el tamaño de fuente al 70% solo para los enlaces dentro del botón */
+}
+
 /* Estilos base para los botones */
-.btn-billing, .btn-purchase {
+.btn-billing, .btn-purchase, .btn-box {
     font-weight: 600;
     margin: 0.25rem;
 }
 
 .btn-responsive {
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
     border-radius: 0.25rem;
@@ -2875,9 +2886,11 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
     .btn-responsive {
         padding: 0.3rem 0.6rem;
         font-size: 0.7rem;
-        width: 100%; /* Ocupa todo el ancho disponible en móviles */
+        width: 100%;
+        /* Ocupa todo el ancho disponible en móviles */
         margin: 0.2rem 0;
     }
+
     .buscador {
         display: flex;
         flex-direction: column;
@@ -2891,6 +2904,7 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
         font-size: 0.65rem;
         margin-left: 6px;
     }
+
     .buscador {
         display: flex;
         flex-direction: column;
@@ -24582,6 +24596,36 @@ span.flatpickr-weekday {
     }
 }
 
+/* Contenedor para resultados de búsqueda de productos */
+.search-products {
+    max-height: 300px;
+    /* Altura máxima con scroll */
+    min-height: 80px;
+    /* Altura mínima */
+    overflow-y: auto;
+    /* Scroll vertical */
+}
+
+/* Textos en modales de facturación */
+.billing-modal-p {
+    font-size: 12px;
+    /* Texto pequeño */
+    text-align: right;
+    /* Alineado a la derecha */
+    margin-top: 10px;
+    /* Espacio arriba */
+}
+
+/* Info de usuario en modales */
+.billing-modal-content-user-p {
+    font-size: 12px;
+    /* Texto pequeño */
+    border-radius: 30px;
+    /* Bordes redondeados */
+    text-align: right;
+    /* Alineado a la derecha */
+}
+
 /* Estilos vista de la  transacción */
 
 .transaction-status-reson-rejection {
@@ -24702,4 +24746,152 @@ span.flatpickr-weekday {
         font-size: 90%;
         /* Tamaño de fuente reducido */
     }
+}
+
+/* 
+ * ESTILOS PRINCIPALES PARA REPORTES DE CAJA
+ * Contiene todos los estilos relacionados con la visualización de reportes de caja
+ */
+
+/* Estilos base para el cuerpo del reporte de caja */
+.body-sale-box {
+
+    /* Tamaño de fuente para encabezados h6 dentro del reporte */
+    h6 {
+        font-size: 14px;
+    }
+
+    /* Tamaño de fuente para párrafos dentro del reporte */
+    p {
+        font-size: 14px;
+    }
+
+    /* Tamaño de fuente para el contenido de las tarjetas */
+    .card-body {
+        font-size: 14px;
+    }
+}
+
+/* 
+ * ESTILOS PARA TARJETAS
+ * Contiene estilos para diferentes tipos de tarjetas en el reporte
+ */
+
+/* Estilo de borde secundario para tarjetas (color azul grisáceo) */
+.sale-card-border-secondary {
+    border: solid #a8b8d8 !important;
+    /* Borde sólido con color específico */
+}
+
+/* Estilo de borde primario para tarjetas (color azul claro) */
+.sale-card-border-primary {
+    border: solid rgb(23, 193, 232);
+    /* Borde sólido con color azul primario */
+}
+
+/* Estilo para títulos de tarjetas */
+.sale-card-title {
+    color: rgb(23, 193, 232);
+    /* Color azul claro para títulos */
+}
+
+/* 
+ * CONTENEDORES PRINCIPALES
+ * Estilos para los contenedores de reportes
+ */
+
+/* Contenedor principal del reporte de caja */
+.sale-box-container {
+    border: solid rgb(23, 193, 232);
+    /* Borde azul claro */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    padding: 10px;
+    /* Espaciado interno */
+    max-width: 100%;
+    /* Ancho máximo */
+    overflow: hidden;
+    /* Oculta contenido que sobresale */
+}
+
+/* Estilos para párrafos dentro del contenedor */
+.sale-box-container p {
+    font-weight: 600;
+    /* Negrita */
+    margin-left: 10px;
+    /* Margen izquierdo */
+}
+
+/* 
+ * RESUMEN DE CAJA
+ * Estilos para la sección de resumen
+ */
+
+/* Cuerpo de la tarjeta de resumen */
+.box-summary-card-body {
+    font-size: 10px;
+    /* Tamaño de fuente pequeño */
+}
+
+/* Párrafos dentro del resumen */
+.box-summary-card-body p {
+    font-weight: 600;
+    /* Negrita */
+}
+
+/* Estilo especial para totales generales */
+.grand-Totals-p {
+    font-weight: 600;
+    /* Negrita */
+}
+
+/* 
+ * TABLA DE PAGOS
+ * Estilos para la tabla de métodos de pago
+ */
+
+.sale-box-payment-table {
+    overflow-x: auto;
+    /* Scroll horizontal si es necesario */
+}
+
+/* Estilos para encabezados de tabla */
+.sale-box-payment-table th {
+    font-weight: 700;
+    /* Negrita más intensa */
+    color: #344767;
+    /* Color azul oscuro */
+    max-width: 200px;
+    /* Ancho máximo de celdas */
+}
+
+/* 
+ * VISTA DE CAJA
+ * Estilos para la visualización detallada de caja
+ */
+
+/* Contenedor de vista detallada */
+.view-box-container {
+    border-radius: 10px;
+    /* Bordes redondeados */
+    padding: 10px;
+    /* Espaciado interno */
+    max-width: 100%;
+    /* Ancho máximo */
+    overflow: hidden;
+    /* Oculta contenido que sobresale */
+}
+
+/* Párrafos dentro del contenedor de vista */
+.view-box-container p {
+    font-weight: 600;
+    /* Negrita */
+    margin-left: 10px;
+    /* Margen izquierdo */
+}
+
+/* Borde secundario para vista de resumen */
+.view-box-summary-border-secondary {
+    border: solid #a8b8d8;
+    /* Borde azul grisáceo */
 }

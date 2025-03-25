@@ -83,10 +83,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/proceso-de-pago', [TransactionController::class, 'paymentTransaction'])->name('payment.pay');
 
 	//Sales Box
-	Route::get('/box-validate-open', [SalesBoxController::class, 'validateBoxOpenByUser'])->name('box-validate-open');
-	Route::post('/box-open', [SalesBoxController::class, 'openBox'])->name('box-open');
+	Route::get('/validar-caja-abierta', [SalesBoxController::class, 'validateBoxOpenByUser'])->name('validar-caja-abierta');
+	Route::get('/vista-caja', [SalesBoxController::class, 'view'])->name('vista-caja');
+	Route::post('/abrir-caja', [SalesBoxController::class, 'openBox'])->name('abrir-caja');
+	Route::post('/cerrar-caja/{id}', [SalesBoxController::class, 'closeBox'])->name('cerrar-caja');
+	Route::get('/reporte-caja', [SalesBoxController::class, 'reporByDate'])->name('reporte-caja');
+	Route::post('/reporte-caja', [SalesBoxController::class, 'reporByDate'])->name('reporte-caja');
+	
 });
-
 
 
 Route::group(['middleware' => 'guest'], function () {

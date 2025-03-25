@@ -305,6 +305,37 @@
                     <span class="nav-link-text ms-1">Transacciones</span>
                 </a>
             </li>
+            <li class="nav-item mt-2">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Reportes</h6>
+            </li>
+            <li class="nav-item pb-2">
+                <a class="nav-link {{ Request::is('reporte-caja') ? 'active' : '' }}"
+                    href="{{ url('reporte-caja') }}" id="reporte-caja-link">
+                    <div
+                        class="icon icon-shape icon-sm shadow border: 1px border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="7 10 50 50" width="50" height="50">
+                            <!-- Fondo del ícono -->
+                            <rect width="64" height="64" fill="#7f8388" rx="10" ry="10" />
+
+                            <!-- Caja -->
+                            <rect x="18" y="18" width="28" height="28" fill="#FFFFFF" rx="4"
+                                ry="4" />
+                            <rect x="22" y="22" width="20" height="20" fill="#FFFFFF" rx="2"
+                                ry="2" />
+
+                            <!-- Gráfico de barras (representando ventas) -->
+                            <rect x="26" y="34" width="4" height="8" fill="#7f8388" />
+                            <rect x="32" y="30" width="4" height="12" fill="#7f8388" />
+                            <rect x="38" y="26" width="4" height="16" fill="#7f8388" />
+
+                            <!-- Texto "Reporte" -->
+                            <text x="32" y="58" font-size="10" fill="#FFFFFF" text-anchor="middle"
+                                font-family="Arial, sans-serif">Reporte</text>
+                        </svg>
+                    </div>
+                    <span class="nav-link-text ms-1">Reporte de caja</span>
+                </a>
+            </li>
         </ul>
     </div>
     <hr class="horizontal dark mt-3">

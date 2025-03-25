@@ -10,6 +10,13 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
             <div class="ms-md-3 pe-md-3 d-flex flex-column flex-md-row align-items-center">
+                <!-- Botón: Cerrar caja -->
+                <div class="nav-item btn-box">
+                    <a href="{{ url('vista-caja') }}"
+                        class="{{ Request::is('vista-caja') ? 'active' : '' }} btn bg-gradient-success btn-responsive">
+                        Cerrar caja
+                    </a>
+                </div>
                 <!-- Botón: Generar Compra -->
                 <div class="nav-item btn-billing">
                     @role(env('ROLE_SUPER_ADMIN'))

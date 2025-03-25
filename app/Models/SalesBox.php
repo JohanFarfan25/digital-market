@@ -61,14 +61,6 @@ class SalesBox extends Model
         return $this->belongsTo(User::class, 'edited_by');
     }
 
-    /**
-     * Get the warehouse associated with the sales box.
-     */
-    public function warehouse()
-    {
-        return $this->belongsTo(Warehouse::class, 'warehouse_id');
-    }
-
     public function payments()
     {
         return $this->hasMany(Payment::class, 'id', 'box_id');

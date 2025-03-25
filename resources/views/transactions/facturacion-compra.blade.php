@@ -96,8 +96,7 @@
                                             <input type="search" id="product_search" class="form-control"
                                                 placeholder="Buscar producto...">
                                         </div>
-                                        <div id="product_list" class="border p-2 rounded"
-                                            style="max-height: 300px; min-height: 80px; overflow-y: auto;">
+                                        <div id="product_list" class="border p-2 rounded search-products">
                                             <p class="text-muted">Productos...</p>
                                         </div>
                                     </div>
@@ -125,14 +124,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalCajaLabel">Apertura de caja</h5>
-                        <p style="font-size:12px; text-align:end; margin-top:10px;">
+                        <p  class ="billing-p">
                             {{ date('Y-m-d H:i:s') }}
                         </p>
                     </div>
                     <div class="modal-body">
                         <p style="text-align:center;">¡La caja está cerrada. Debe abrirla para poder continuar!.</p>
                         <div class="col-md-12">
-                            <p style="font-size:12px; border-radius:30px; text-align:end;">
+                            <p class="billing-modal-content-user-p">
                                 {{ auth()->user()->name }}
                             </p>
                         </div>
@@ -259,7 +258,7 @@
             // Función para validar si la caja está abierta
             function validarCaja() {
                 $.ajax({
-                    url: "/box-validate-open", // Ruta a tu backend
+                    url: "/validar-caja-abierta", // Ruta a tu backend
                     method: "GET",
                     success: function(response) {
                         if (response.status == "success") {
@@ -283,7 +282,7 @@
             // Función para abrir la caja
             $("#btnAbrirCaja").on("click", function() {
                 $.ajax({
-                    url: "/box-open",
+                    url: "/abrir-caja",
                     method: "POST",
                     data: {
                         cash_initial: $("#cash").val(),
