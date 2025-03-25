@@ -173,24 +173,25 @@
             <li class="nav-item mt-2">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Gestión de pagos</h6>
             </li>
-            <li class="nav-item pb-2">
-                <a class="nav-link {{ Request::is('facturacion') ? 'active' : '' }}" href="{{ url('facturacion') }}"
-                    id="facturacion-link">
-                    <div
-                        class="icon icon-shape icon-sm shadow border: 1px border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg height="800px" width="800px" version="1.1" id="Capa_1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            viewBox="15 15 302.672 302.672" xml:space="preserve">
-                            <g>
+            @if (auth()->check() && !auth()->user()->roles->isEmpty())
+                <li class="nav-item pb-2">
+                    <a class="nav-link {{ Request::is('facturacion') ? 'active' : '' }}"
+                        href="{{ url('facturacion') }}" id="facturacion-link">
+                        <div
+                            class="icon icon-shape icon-sm shadow border: 1px border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg height="800px" width="800px" version="1.1" id="Capa_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="15 15 302.672 302.672" xml:space="preserve">
                                 <g>
                                     <g>
-                                        <path style="fill:#7f8388;"
-                                            d="M106.905,80.468c-4.702,5.263-6.989,11.497-6.989,18.723c0,7.118,1.963,13.05,5.932,17.861
+                                        <g>
+                                            <path style="fill:#7f8388;"
+                                                d="M106.905,80.468c-4.702,5.263-6.989,11.497-6.989,18.723c0,7.118,1.963,13.05,5.932,17.861
                                                         c4.012,4.81,10.85,8.434,20.277,10.85V70.675C117.971,71.947,111.586,75.204,106.905,80.468z" />
-                                        <path style="fill:#7f8388;"
-                                            d="M138.614,152.816v62.642c8.132-1.014,14.884-4.53,20.19-10.591
+                                            <path style="fill:#7f8388;"
+                                                d="M138.614,152.816v62.642c8.132-1.014,14.884-4.53,20.19-10.591
                                                         c5.263-6.04,8.024-13.525,8.024-22.434c0-7.636-1.941-13.719-5.695-18.357C157.402,159.503,149.917,155.707,138.614,152.816z" />
-                                        <path style="fill:#7f8388;" d="M479.583,291.775l0.841,1.294l-19.176-65.489c-2.438-8.348-8.003-15.229-15.66-19.414
+                                            <path style="fill:#7f8388;" d="M479.583,291.775l0.841,1.294l-19.176-65.489c-2.438-8.348-8.003-15.229-15.66-19.414
                                                         c-7.636-4.163-16.458-5.134-24.742-2.696l-3.969,1.165c-6.536,1.898-11.066,6.967-15.164,12.209
                                                         c-5.846-16.049-22.779-25.41-39.367-20.579l-9.232,2.718c-6.04,1.79-10.656,5.803-14.647,10.246
                                                         c-0.043-0.151-0.561-2.049-0.561-2.049c-5.048-17.235-23.232-27.114-40.445-22.045l-9.232,2.696
@@ -217,63 +218,65 @@
                                                         c-1.294-8.262-3.84-14.56-7.744-18.982c-3.904-4.4-9.254-7.291-16.07-8.693v60.161c10.591,2.696,17.515,4.81,21.01,6.277
                                                         c6.493,2.869,11.799,6.385,15.962,10.505c4.12,4.098,7.291,9.017,9.448,14.69c2.286,5.673,3.343,11.821,3.343,18.443
                                                         C188.356,195.634,183.761,207.735,174.443,217.464z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
                                     </g>
                                 </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                            </g>
-                        </svg>
-                    </div>
-                    <span class="nav-link-text ms-1">Facturación</span>
-                </a>
-            </li>
-            <li class="nav-item pb-2">
-                <a class="nav-link {{ Request::is('facturacion-compra') ? 'active' : '' }}"
-                    href="{{ url('facturacion-compra') }}" id="facturacion-compra-link">
-                    <div
-                        class="icon icon-shape icon-sm shadow border: 1px border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M4 3H20C20.55 3 21 3.45 21 4V20C21 20.55 20.55 21 20 21H4C3.45 21 3 20.55 3 20V4C3 3.45 3.45 3 4 3Z"
-                                stroke="#7f8388" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M7 9H17M7 13H17M7 17H12" stroke="#7f8388" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M8 3V6M16 3V6" stroke="#7f8388" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <span class="nav-link-text ms-1">Orden de Compra</span>
-                </a>
-            </li>
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Facturación</span>
+                    </a>
+                </li>
+                <li class="nav-item pb-2">
+                    <a class="nav-link {{ Request::is('facturacion-compra') ? 'active' : '' }}"
+                        href="{{ url('facturacion-compra') }}" id="facturacion-compra-link">
+                        <div
+                            class="icon icon-shape icon-sm shadow border: 1px border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4 3H20C20.55 3 21 3.45 21 4V20C21 20.55 20.55 21 20 21H4C3.45 21 3 20.55 3 20V4C3 3.45 3.45 3 4 3Z"
+                                    stroke="#7f8388" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M7 9H17M7 13H17M7 17H12" stroke="#7f8388" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M8 3V6M16 3V6" stroke="#7f8388" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Orden de Compra</span>
+                    </a>
+                </li>
+            @endif
             <li class="nav-item pb-2">
                 <a class="nav-link {{ Request::is('transacciones') ? 'active' : '' }}"
                     href="{{ url('transacciones') }}" id="transacciones-link">
