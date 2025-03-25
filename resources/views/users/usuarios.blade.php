@@ -94,8 +94,15 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <img src="{{ $user->profile_picture ? asset($user->profile_picture) : '../assets/img/team-2.jpg' }}"
-                                                        alt="Profile Picture" class="img-fluid avatar avatar-sm me-3">
+                                                    @if ($user->profile_picture && !empty($user->profile_picture))
+                                                        <img src="{{ $user->profile_picture }}" alt="Profile Picture"
+                                                            class="rounded-circle img-fluid avatar avatar-sm me-3">
+                                                    @else
+                                                        <div
+                                                            class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center img-avatar-default avatar-sm">
+                                                            {{ strtoupper(substr($user->name, 0, 1)) }}
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </td>
                                             <td class="text-center">

@@ -93,8 +93,15 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <img src="{{ $product->image ?? asset($product->image) }}"
-                                                        alt="Product Image" class="img-fluid avatar avatar-sm me-3">
+                                                    @if ($product->image && !empty($product->image))
+                                                        <img src="{{ $product->image }}" alt="Product Image"
+                                                            class=" rounded-circle img-fluid avatar avatar-sm me-3">
+                                                    @else
+                                                        <div
+                                                            class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center img-avatar-default avatar-sm">
+                                                            {{ strtoupper(substr($product->name, 0, 1)) }}
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </td>
                                             <td class="text-center">
