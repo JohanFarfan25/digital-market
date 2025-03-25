@@ -12,10 +12,12 @@
             <div class="ms-md-3 pe-md-3 d-flex flex-column flex-md-row align-items-center">
                 <!-- Botón: Cerrar caja -->
                 <div class="nav-item btn-box">
-                    <a href="{{ url('vista-caja') }}"
-                        class="{{ Request::is('vista-caja') ? 'active' : '' }} btn bg-gradient-success btn-responsive">
-                        Cerrar caja
-                    </a>
+                    @role(env('ROLE_SUPER_ADMIN'))
+                        <a href="{{ url('vista-caja') }}"
+                            class="{{ Request::is('vista-caja') ? 'active' : '' }} btn bg-gradient-success btn-responsive">
+                            Cerrar caja
+                        </a>
+                    @endrole
                 </div>
                 <!-- Botón: Generar Compra -->
                 <div class="nav-item btn-billing">
