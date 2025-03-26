@@ -134,8 +134,7 @@ class SalesBoxController extends Controller
             $box = $this->getSessionOpenBox() ?? [];
             if (isset($box->id)) {
                 $totals['status'] = ($box->status_box == 'open') ? 'Abierta' : 'Cerrada';
-                $creted_at = $box->created_at;
-                $date = new DateTime($creted_at)->format('Y-m-d');
+                $date = (new DateTime($box->created_at))->format('Y-m-d');
                 $totals['date'] = $date;
                 $totals['base'] = $box->base;
                 $totals['cash'] = $box->base;
