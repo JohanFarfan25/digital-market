@@ -5669,7 +5669,7 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
     /* Fondo blanco */
     border-top: 0 solid rgba(0, 0, 0, .125);
     /* Borde superior transparente */
-    padding: .5rem 1rem
+    padding: .5rem 1rem;
         /* Relleno interno */
 }
 
@@ -19814,6 +19814,19 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
     /* Sombra verde */
 }
 
+
+/* Deja estatico el footer*/
+.sticky-bottom {
+    position: sticky;
+    bottom: 0;
+    background-color: #f8f9fa;
+    margin-top: 1rem;
+    border: none; /* Asegura que no haya bordes */
+    box-shadow: none; /* Elimina cualquier sombra */
+    outline: none; /* Asegura que no haya contorno */
+    z-index: 1000;
+}
+
 /* Estilo para enlaces dentro del footer */
 .footer .nav-link {
     color: #344767;
@@ -22222,25 +22235,103 @@ hr.horizontal.gray-light {
     text-align: center;
 }
 
-/* Estilos para el contenedor del  whatsapp*/
-.sidenav-footer-container-whatsapp {
+/* Estilos para el contenedor del feedback */
+.sidenav-footer-container-feedback {
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 90%;
     text-align: center;
     margin-left: 10px;
 }
 
-/* Estilos para los a  del  whatsapp*/
-.sidenav-footer-container-whatsapp a {
+/* Estilos para los enlaces del feedback */
+.sidenav-footer-container-feedback a {
     font-size: 80%;
 }
 
-/* Estilos para las imagenes  del  whatsapp*/
-.sidenav-footer-container-whatsapp img {
-    width: 20px;
-    margin-right: 8px;
+/* Estilos para los títulos del feedback */
+.sidenav-footer-container-feedback h6 {
+    color: #17c1e8;
 }
+
+/* Animación de pulso */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(23, 193, 232, 0.7);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(23, 193, 232, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(23, 193, 232, 0);
+    }
+}
+
+.feedback-btn {
+    background-color: #17c1e8;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    font-size: 90%;
+    animation: pulse 2s infinite;
+    /* Aplica la animación */
+}
+
+.feedback-btn:hover {
+    background-color: #0fa8d1;
+    animation: none;
+    /* Detiene la animación al hacer hover */
+}
+
+.card-background-feedback {
+    opacity: .85;
+    border: solid 1px #17c1e8;
+}
+
+/* Añade esto a tu CSS */
+.modal {
+    z-index: 1060 !important;
+    /* Bootstrap usa 1050 por defecto, lo aumentamos */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Si usas un sidenav con z-index alto */
+.sidenav-footer {
+    position: relative;
+    z-index: 1040;
+    /* Menor que el modal */
+}
+
+/* Estilos para el sistema de rating */
+.star-rating {
+    transition: all 0.2s ease;
+    margin: 0 3px;
+}
+
+.star-rating:hover,
+.star-rating.active {
+    color: #ffc107 !important;
+    /* Color amarillo para estrellas activas */
+    transform: scale(1.1);
+}
+
+.rating-stars {
+    user-select: none;
+}
+
 
 /* Estilos para el colapso de elementos dentro del sidenav */
 .g-sidenav-show .sidenav .nav-item .collapse {
@@ -25081,5 +25172,81 @@ span.flatpickr-weekday {
 }
 
 .dashboard-products-container {
-    min-height: 351px;
+    min-height: 720px;
+}
+
+.dashboard-testimonials-container {
+    min-height: 350px;
+    max-height: 350px;
+}
+
+.dashboard-chart-container {
+
+    min-height: 350px;
+    max-height: 350px;
+}
+
+.comments-container {
+    min-height: 200px;
+    max-height: 200px;
+    overflow-y: scroll;
+    /* Hace que el scrollbar siempre esté visible */
+    overflow-x: hidden;
+    /* Evita desplazamiento horizontal */
+    padding-right: 10px;
+    /* Evita que el scrollbar corte el contenido */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Reducir tamaño del contenedor de cada comentario */
+.comment-card {
+    padding: 8px;
+    /* Reduce el padding interno */
+    font-size: 0.85rem;
+    /* Reduce el tamaño de la fuente */
+    width: 100%;
+    border: solid #e6e6e6;
+}
+
+.comment-card span {
+    margin-left: 1rem;
+}
+
+/* Reducir tamaño de la imagen del avatar */
+.img-avatar {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+/* Reducir tamaño del avatar con iniciales */
+.img-avatar-default {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+}
+
+/* Reducir el tamaño del nombre del usuario */
+.comment-card h6 {
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
+/* Reducir tamaño del texto de la fecha */
+.comment-card span.text-xs {
+    font-size: 0.7rem;
+}
+
+.scroll-message {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+/* Reducir tamaño del contenedor en tamaño pequeños */
+@media (max-width:600px) {
+    .dashboard-products-container {
+        min-height: 350px;
+    }
 }

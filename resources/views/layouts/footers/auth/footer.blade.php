@@ -1,4 +1,4 @@
-<footer class="footer pt-3">
+<footer class="footer pt-3 sticky-bottom">
     <div class="container-fluid">
         <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-12 mb-4 pt-2">

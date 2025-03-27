@@ -11,7 +11,8 @@ use App\Http\Controllers\{
 	SessionsController,
 	ResetController,
 	ChangePasswordController,
-	ProductController,
+    FeedBackController,
+    ProductController,
 	SalesBoxController,
 	TransactionController
 };
@@ -90,6 +91,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/cerrar-caja/{id}', [SalesBoxController::class, 'closeBox'])->name('cerrar-caja');
 	Route::get('/reporte-caja', [SalesBoxController::class, 'reporByDate'])->name('reporte-caja');
 	Route::post('/reporte-caja', [SalesBoxController::class, 'reporByDate'])->name('reporte-caja');
+
+	//Feddback
+	Route::post('/feedback', [FeedBackController::class, 'store'])->name('feedback');
 });
 
 

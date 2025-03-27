@@ -1,7 +1,6 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-
     <div>
         <div class="container-fluid">
             <div class="page-header min-height-200 border-radius-xl mt-4 page-header-background-linear-gradient"
@@ -10,13 +9,15 @@
             <div class="card card-body blur shadow-blur mx-4 mt-n6">
                 <div class="row gx-4">
                     <div class="col-auto">
-                        <div
-                            class="avatar avatar-xl position-relative rounded-circle bg-primary text-white d-flex justify-content-center align-items-center img-avatar-default">
+                        <div class="p-2 nav-link text-body font-weight-bold px-0">
                             @if (auth()->user()->profile_picture)
                                 <img src="{{ asset(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->name }}"
                                     class="img-fluid rounded-circle img-avatar">
                             @else
-                                {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                                <div
+                                    class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center img-avatar-default">
+                                    {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -170,7 +171,7 @@
             </div>
         </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         //SECCIÓN PARA EL PREVIEW DE LA IMAGEN ***********************
         function previewImage(event) {

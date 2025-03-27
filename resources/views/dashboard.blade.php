@@ -1,6 +1,7 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="col-xl-12 col-sm-6 mb-xl-0 mb-4">
         <div class="col-auto my-auto p-3">
@@ -104,7 +105,7 @@
     <div class="row mt-4">
         <!-- Garfica de ventas -->
         <div class="col-lg-7 mb-lg-0 mb-5">
-            <div class="card z-index-2">
+            <div class="card z-index-2 dashboard-chart-container">
                 <div class="card-body p-3">
                     <div class="card-header pb-0">
                         <h6 class="dashboard-h6">Resumen de ventas</h6>
@@ -121,6 +122,51 @@
                     </div>
                 </div>
             </div>
+            <div class="card z-index-2 mt-4 dashboard-testimonials-container">
+                <div class="card-body p-3">
+                    <div class="card-header pb-1">
+                        <h6 class="dashboard-h6">Testimonios o Reseñas</h6>
+                    </div>
+                    <div class="comments-container">
+                    <p class="scroll-message">Desliza hacia abajo para ver más comentarios ⬇</p>
+                        @foreach ($feedbacks as $feedback)
+                            <div class="comment-card mb-4 p-3 border-radius-lg">
+                                <div class="d-flex align-items-center mb-2">
+                                    @if ($feedback->user->profile_picture)
+                                        <img src="{{ asset($feedback->user->profile_picture) }}"
+                                            alt="{{ $feedback->user->name }}" class="img-fluid rounded-circle img-avatar">
+                                    @else
+                                        <div
+                                            class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center img-avatar-default">
+                                            {{ strtoupper(substr($feedback->user->name, 0, 1)) }}
+                                        </div>
+                                    @endif
+                                    <div>
+                                        <h6 class="mb-0 text-dark font-weight-bold">
+                                            {{ $feedback->user->name ?? 'Usuario Anónimo' }}
+                                        </h6>
+                                        <span class="text-xs text-muted">
+                                            {{ $feedback->created_at->diffForHumans() }}
+                                        </span>
+                                    </div>
+                                    <!-- Rating (estrellas) -->
+                                    <div class="ms-auto">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i
+                                                class="bi bi-star{{ $i <= $feedback->rating ? '-fill' : '' }} text-warning"></i>
+                                        @endfor
+                                    </div>
+                                </div>
+                                <div class="comment-content ps-5 ms-2">
+                                    <p class="text-sm mb-0">
+                                        {{ $feedback->comments }}
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Top de productos mas vendidos -->
         <div class="col-lg-5">
@@ -131,9 +177,10 @@
                         @csrf
                         <div class="col-md-6 d-flex justify-content-start">
                             <div class=" col-md-12">
-                                <input type="date" class="form-control" placeholder="Seleccione la fecha de expiración"
-                                    name="date" id="date" aria-label="date" aria-describedby="date"
-                                    max="{{ now()->format('Y-m-d') }}" value="{{ now()->toDateString() }}" required>
+                                <input type="date" class="form-control"
+                                    placeholder="Seleccione la fecha de expiración" name="date" id="date"
+                                    aria-label="date" aria-describedby="date" max="{{ now()->format('Y-m-d') }}"
+                                    value="{{ now()->toDateString() }}" required>
                             </div>
                             <div class="d-flex justify-content-end col-md-6">
                                 <button type="button" id="search-products"
@@ -355,13 +402,13 @@
 
             let result = @json($response);
 
-            if (result && result?.status == 'error') {
+            if (result) {
                 Swal.fire({
-                    title: 'Ups!',
-                    icon: 'error',
+                    title: result?.status == 'error' ? 'Ups!' : 'En Hora Buena!',
+                    icon: result?.status == 'error' ? 'error' : 'success',
                     text: result?.message,
                     showConfirmButton: false,
-                    timer: 4000
+                    timer: result?.status == 'error' ? 5000 : 4000,
                 });
             }
         @endif

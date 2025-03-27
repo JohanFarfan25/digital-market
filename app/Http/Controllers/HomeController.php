@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FeedBack;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\User;
@@ -18,16 +19,16 @@ class HomeController extends Controller
         return redirect('dashboard');
     }
 
-
     /**
      * Redirecciona a la vista dashboard
      * @author Johan Alexander Farfán Sierra <johanfarfan25@gmail.com>
      */
-    public function dashboard($status = 'success', $message = null)
+    public function dashboard($status = 'success', $message = null, $view = false)
     {
         $totalUsers = User::count();
         $totalProducts = Product::count();
         $transactions = Transaction::where('status', 1)->get();
+        $feedbacks = Feedback::orderBy('id', 'DESC')->limit(100)->get();
         $currentYear = date('Y');
 
         $salesByMonth = Transaction::selectRaw('MONTH(created_at) as month, SUM(price) as total')
@@ -71,6 +72,12 @@ class HomeController extends Controller
         $declined = number_format($declined, 0, ',', '.');
         $grantTotal = number_format($grantTotal, 0, ',', '.');
 
+        if ($view == false) {
+            $message = '';
+        } else {
+            $message = !empty($message) ? $message : 'Bienvenido.';
+        }
+
         return getResponse(
             'dashboard',
             compact(
@@ -86,9 +93,10 @@ class HomeController extends Controller
                 'salesData',
                 'months',
                 'currentYear',
+                'feedbacks',
             ),
             $status,
-            !empty($message) ? $message : 'Bienvenido.'
+            $message
         );
     }
 

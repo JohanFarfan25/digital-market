@@ -341,24 +341,21 @@
             </li>
         </ul>
     </div>
-    <div class="sidenav-footer mx-1 ">
-        <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
-            <div class="card-body text-start p-1 w-100">
-                <hr>
+     <!-- Boton para acceder al modal de comentarios y recomendaciones -->
+    <div class="sidenav-footer mx-1 mt-4">
+        <div class="card card-background-feedback" id="sidenavCard">
+            <div class="card-body text-start p-3 w-100">
                 <div class="docs-info p-1">
-                    <h6 class="text-white up mb-0">Nesecitas ayuda?</h6>
-                    <div class="row mt-1 p-1 sidenav-footer-container-whatsapp">
-                        <a href="https://wa.me/{{ env('PHONE_CORPORATE') }}" target="_blank"
-                            class="btn btn-white btn-sm mb-3" style="font-size: 80%;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-                                alt="WhatsApp Icon">
-                            Contactanos por WhatsApp
-                        </a>
+                    <h6 class="mb-0">¡Ayudanos a mejorar!</h6>
+                    <div class="row mt-1 p-1 sidenav-footer-container-feedback">
+                        <button class="feedback-btn" data-bs-toggle="modal" data-bs-target="#feedback">Déjanos tu
+                            opinión</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const svg = document.querySelector('svg');
@@ -388,5 +385,6 @@
                 });
             }
         });
+        
     </script>
 </aside>
