@@ -40,7 +40,7 @@
                         <i class="fa fa-hand-point-right me-2 pointing-hand"></i>
                         <i
                             class="fa fa-user-plus opacity-6 me-1 {{ Request::is('crear-usuario-invitado') ? '' : 'text-dark' }}"></i>
-                        Crear Cuenta como invitado
+                        Crear cuenta como invitado
                     </a>
                 </li>
             </ul>

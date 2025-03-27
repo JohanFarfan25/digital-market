@@ -19836,6 +19836,98 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
     /* Transición suave de la opacidad */
 }
 
+/* Contenedor principal de redes sociales del footer */
+.social-container {
+    max-width: 600px;
+    /* Ancho máximo */
+    margin: 0 auto;
+    /* Centrar en pantalla */
+    display: flex;
+    flex-direction: column;
+    /* Elementos en columna */
+    align-items: center;
+    /* Centrar elementos */
+}
+
+/* Contenedor de los iconos */
+.social-links {
+    padding: 1rem 0;
+    /* Espacio arriba y abajo */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* Espacio entre iconos */
+    flex-wrap: wrap;
+    /* Iconos pueden pasar a otra línea */
+    gap: 10px;
+    /* Separación entre iconos */
+}
+
+/* Título de la sección */
+.title-social {
+    margin-bottom: 1rem;
+    /* Espacio debajo del título */
+    text-align: center;
+    width: 100%;
+}
+
+/* Estilo de cada icono */
+.social-icon {
+    width: 28px;
+    /* Tamaño del icono */
+    height: 28px;
+    border-radius: 50%;
+    /* Forma circular */
+    display: flex;
+    align-items: center;
+    /* Centrar icono internamente */
+    justify-content: center;
+    background-color: rgb(23, 193, 232);
+    /* Color azul */
+    color: white;
+    transition: all 0.2s ease;
+    /* Animación suave al pasar mouse */
+    font-size: 16px;
+    flex-shrink: 0;
+    /* Evita que se encoja */
+}
+
+/* Efecto al pasar el mouse */
+.social-icon:hover {
+    transform: scale(1.15);
+    /* Agrandar un poco */
+    opacity: 0.9;
+    /* Ligera transparencia */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    /* Sombra */
+}
+
+/* Cambios en pantallas más grandes (600px+) */
+@media (min-width: 600px) {
+    .social-container {
+        flex-direction: row;
+        /* Elementos en fila */
+        justify-content: space-between;
+        /* Separar título e iconos */
+    }
+
+    .title-social {
+        margin-bottom: 0;
+        /* Quitar espacio inferior */
+        width: auto;
+        /* Ancho automático */
+        padding-right: 20px;
+        /* Espacio a la derecha */
+    }
+
+    .social-links {
+        justify-content: flex-end;
+        /* Alinear iconos a la derecha */
+        padding: 0;
+        /* Quitar padding */
+    }
+}
+
 /* Estilo para gradientes de fondo */
 .bg-gradient-info {
     background-image: linear-gradient(310deg, #7928ca, #ff0080);
@@ -24989,5 +25081,5 @@ span.flatpickr-weekday {
 }
 
 .dashboard-products-container {
-    min-height: 250px;
+    min-height: 351px;
 }

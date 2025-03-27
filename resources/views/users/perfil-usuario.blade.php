@@ -10,9 +10,14 @@
             <div class="card card-body blur shadow-blur mx-4 mt-n6">
                 <div class="row gx-4">
                     <div class="col-auto">
-                        <div class="avatar avatar-xl position-relative">
-                            <img src="{{ auth()->user()->profile_picture ? asset(auth()->user()->profile_picture) : '../assets/img/team-2.jpg' }}"
-                                alt="Profile Picture" class="w-100 border-radius-lg shadow-sm">
+                        <div
+                            class="avatar avatar-xl position-relative rounded-circle bg-primary text-white d-flex justify-content-center align-items-center img-avatar-default">
+                            @if (auth()->user()->profile_picture)
+                                <img src="{{ asset(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->name }}"
+                                    class="img-fluid rounded-circle img-avatar">
+                            @else
+                                {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                            @endif
                         </div>
                     </div>
                     <div class="col-auto my-auto">

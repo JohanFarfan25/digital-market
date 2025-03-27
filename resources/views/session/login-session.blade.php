@@ -13,7 +13,7 @@
                                 <div class="card-header pb-0 text-left bg-transparent">
                                     <h3 class="font-weight-bolder text-info text-gradient ">Bienvenido</h3>
                                 </div>
-                                <div  class="col-xl-4 col-lg-5 col-md-6 svg-logo-company">
+                                <div class="col-xl-4 col-lg-5 col-md-6 svg-logo-company">
                                     <svg viewBox="0 0 500 120" preserveAspectRatio="xMidYMid meet"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <text x="20" y="80" font-family="Arial, sans-serif" font-size="64"
@@ -73,6 +73,16 @@
                                         <a href="/login/contrasena-olvidada"
                                             class="text-info text-gradient font-weight-bold">aquí</a>
                                     </small>
+                                </div>
+                                <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                    <a class="d-flex align-items-center me-2 active" aria-current="page"
+                                        href="{{ url('crear-usuario-invitado') }}">
+                                        <!-- Ícono de mano animada -->
+                                        <i class="fa fa-hand-point-right me-2 pointing-hand"></i>
+                                        <i
+                                            class="fa fa-user-plus opacity-6 me-1 {{ Request::is('crear-usuario-invitado') ? '' : 'text-dark' }}"></i>
+                                        Crear cuenta como invitado
+                                    </a>
                                 </div>
                             </div>
                         </div>
