@@ -31,7 +31,8 @@
                             <div class=" col-md-6">
                                 <input type="date" class="form-control" placeholder="Seleccione la fecha de expiración"
                                     name="date" id="date" aria-label="date" aria-describedby="date"
-                                    value="{{ old('date', $date ? $date : '') }}" required>
+                                    max="{{ now()->format('Y-m-d') }}" value="{{ old('date', $date ? $date : '') }}"
+                                    required>
                             </div>
                             <div class="d-flex justify-content-end col-md-6">
                                 <button type="submit"

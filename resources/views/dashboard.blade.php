@@ -133,7 +133,7 @@
                             <div class=" col-md-12">
                                 <input type="date" class="form-control" placeholder="Seleccione la fecha de expiración"
                                     name="date" id="date" aria-label="date" aria-describedby="date"
-                                    value="{{ now()->toDateString() }}" required>
+                                    max="{{ now()->format('Y-m-d') }}" value="{{ now()->toDateString() }}" required>
                             </div>
                             <div class="d-flex justify-content-end col-md-6">
                                 <button type="button" id="search-products"
@@ -239,6 +239,10 @@
                                 `;
                             });
                             $('table tbody').html(html); // Actualiza la tabla
+                        } else {
+                            $('table tbody').html(
+                                '<tr><td colspan="3" class="text-center">No hay productos disponibles para esta fecha.</td></tr>'
+                            );
                         }
                     },
                     error: function(xhr, status, error) {
