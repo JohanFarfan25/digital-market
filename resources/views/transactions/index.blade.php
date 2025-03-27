@@ -8,7 +8,7 @@
             <div class="card card-body blur shadow-blur mx-4 mt-n5">
                 <div class="row gx-4">
                     <div class="col-auto my-auto">
-                        <div class="h-100">
+                        <div class="h-100 header-page-title">
                             <h5 class="mt-2">
                                 Transacciones
                             </h5>
