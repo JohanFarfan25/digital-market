@@ -33,7 +33,7 @@
                                 <!-- Contenedor para la vista previa -->
                                 <div class="form-group text-center">
                                     <div id="image-preview"
-                                        class="border p-2 rounded d-inline-block container-preview-image">
+                                        class="border p-2 rounded d-inline-block container-preview-image image-preview">
                                         @if (!empty($product->image))
                                             <img id="preview-image" src="{{ asset($product->image) }}" alt="Preview"
                                                 class="img-fluid preview-image">

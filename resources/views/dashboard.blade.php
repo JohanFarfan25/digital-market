@@ -184,7 +184,7 @@
                             </div>
                             <div class="d-flex justify-content-end col-md-6">
                                 <button type="button" id="search-products"
-                                    class="btn bg-gradient-info btn-md  mb-4">{{ 'Buscar' }}</button>
+                                    class="btn bg-gradient-info btn-md  mb-4  dashboard-products-container-button">{{ 'Buscar' }}</button>
                             </div>
                         </div>
                     </form>

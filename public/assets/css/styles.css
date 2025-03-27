@@ -5670,7 +5670,7 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
     border-top: 0 solid rgba(0, 0, 0, .125);
     /* Borde superior transparente */
     padding: .5rem 1rem;
-        /* Relleno interno */
+    /* Relleno interno */
 }
 
 /* Estilos para el pie de la tarjeta que es el último hijo */
@@ -19821,9 +19821,12 @@ textarea.form-control, textarea.form-control-lg, textarea.form-control-sm {
     bottom: 0;
     background-color: #f8f9fa;
     margin-top: 1rem;
-    border: none; /* Asegura que no haya bordes */
-    box-shadow: none; /* Elimina cualquier sombra */
-    outline: none; /* Asegura que no haya contorno */
+    border: none;
+    /* Asegura que no haya bordes */
+    box-shadow: none;
+    /* Elimina cualquier sombra */
+    outline: none;
+    /* Asegura que no haya contorno */
     z-index: 1000;
 }
 
@@ -20908,21 +20911,230 @@ hr.horizontal.gray-light {
     /* Ancho de 18px */
 }
 
-/* Estilo para las líneas del toggler de la barra de navegación */
+/* Estilo para las líneas del toggler */
 .navbar .sidenav-toggler-inner .sidenav-toggler-line {
     background: #67748e;
-    /* Color de fondo */
     border-radius: .125rem;
-    /* Borde redondeado de 0.125rem */
     display: block;
-    /* Mostrar como bloque */
     height: 2px;
-    /* Altura de 2px */
     position: relative;
-    /* Posición relativa */
     transition: all .15s ease;
-    /* Transición suave */
+    margin: 3px 0;
+    /* Espacio entre líneas */
 }
+
+@media (min-width: 768px) {
+    .sidenav-toggler-inner {
+        display: none;
+    }
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar .sidenav-toggler-inner {
+        width: 24px;
+        /* Ancho mayor en móviles */
+    }
+
+    .navbar .sidenav-toggler-inner .sidenav-toggler-line {
+        height: 3px;
+        /* Líneas más gruesas */
+        margin: 4px 0;
+        /* Más espacio entre líneas */
+    }
+}
+
+/* Opcional: hacerlo aún más grande en pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .navbar .sidenav-toggler-inner {
+        width: 30px;
+    }
+
+    .navbar .sidenav-toggler-inner .sidenav-toggler-line {
+        height: 3.5px;
+        margin: 5px 0;
+    }
+}
+
+/* Estilos base para los botones y contenedores */
+.navbar-collapse .pe-md-3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Contenedor principal - Siempre en línea */
+.navbar-actions-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Estilos base para botones */
+.btn-responsive {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+}
+
+/* Avatar */
+.user-avatar img, .img-avatar-default {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+}
+
+/* --- Responsive --- */
+/* Tablets (ajuste mínimo) */
+@media (max-width: 992px) {
+    .btn-responsive {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Móviles (compacto pero en línea) */
+@media (max-width: 768px) {
+    .navbar-actions-container {
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+    }
+
+    .btn-responsive {
+        padding: 0.4rem 0.7rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    .user-role {
+        font-size: 0.8rem;
+    }
+
+    .user-avatar img, .img-avatar-default {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Móviles muy pequeños (scroll horizontal si es necesario) */
+@media (max-width: 480px) {
+    .navbar-actions-container {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-responsive {
+        flex-shrink: 0;
+        /* Evita que los botones se encojan */
+    }
+}
+
+/* Estilos base para los botones */
+.btn-responsive {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Contenedor principal */
+.navbar-collapse .pe-md-3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Ajustes para pantallas medianas (tablets) */
+@media (max-width: 992px) {
+    .btn-responsive {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .ms-md-3 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .btn-responsive {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.75rem;
+        min-width: 0;
+        /* Permite que se encojan más */
+    }
+
+    /* Elementos no botones */
+    .nav-item:not(.btn-box):not(.btn-billing):not(.btn-purchase) {
+        grid-column: span 2;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .btn-responsive {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.7rem;
+    }
+
+    .ms-md-3 {
+        gap: 0.3rem;
+    }
+}
+
+/* Ajustes para la imagen de perfil */
+.img-avatar, .img-avatar-default {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .img-avatar, .img-avatar-default {
+        width: 26px;
+        height: 26px;
+    }
+
+    .btn-box {
+        font-size: 0.75rem;
+    }
+
+    .btn-billing {
+        font-size: 0.75rem;
+    }
+
+    .btn-purchase {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .img-avatar, .img-avatar-default {
+        width: 24px;
+        height: 24px;
+    }
+
+    .btn-box {
+        font-size: 0.75rem;
+    }
+
+    .btn-billing {
+        font-size: 0.75rem;
+    }
+}
+
 
 /* Estilo para las líneas del toggler de la barra de navegación (excepto la última) */
 .navbar .sidenav-toggler-inner .sidenav-toggler-line:not(:last-child) {
@@ -24907,6 +25119,19 @@ span.flatpickr-weekday {
     /* Margen superior de 1.5 unidades rem (relativas al tamaño de fuente raíz) */
 }
 
+.transaccion-datail h6 {
+    font-size: 0.75rem !important;
+}
+
+.transaccion-datail li div {
+    font-size: 0.75rem !important;
+}
+
+.transaccion-datailtransaction-status {
+    align-items: center;
+    flex-direction: column;
+}
+
 /* Estilos para el detalle de los pagos */
 .payment-details {
     min-height: 100px;
@@ -24994,7 +25219,7 @@ span.flatpickr-weekday {
         /* Disposición en columna */
         align-items: flex-start;
         /* Alineación a la izquierda */
-        font-size: 90%;
+        font-size: 80%;
         /* Tamaño de fuente reducido */
     }
 
@@ -25156,6 +25381,29 @@ span.flatpickr-weekday {
     /* Borde azul grisáceo */
 }
 
+/* estilos respponsive de box */
+@media (max-width:600px) {
+    .box-btn-buscar {
+        margin-left: 0.5rem;
+    }
+
+    .contariner-report-sale-box h6 {
+        font-size: 0.5rem;
+    }
+
+    .contariner-report-sale-box p {
+        font-size: 0.5rem;
+    }
+
+    .sale-box-container, .sale-box-payment-table {
+        font-size: 0.5rem;
+    }
+
+    .body-sale-box {
+        width: 100% !important;
+    }
+}
+
 /* Estilos para el  dashboard*/
 .dashboard-title {
     display: flex;
@@ -25173,6 +25421,10 @@ span.flatpickr-weekday {
 
 .dashboard-products-container {
     min-height: 720px;
+}
+
+.dashboard-products-container-button {
+    margin-left: 1.5rem;
 }
 
 .dashboard-testimonials-container {
@@ -25220,10 +25472,16 @@ span.flatpickr-weekday {
     object-fit: cover;
 }
 
+.img-avatar-2 {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
 /* Reducir tamaño del avatar con iniciales */
 .img-avatar-default {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     font-size: 0.9rem;
 }
 
@@ -25244,9 +25502,53 @@ span.flatpickr-weekday {
     color: #888;
     margin-bottom: 5px;
 }
+
+.image-preview {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.transaccion-datailtransaction-status {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* Reducir tamaño del contenedor en tamaño pequeños */
 @media (max-width:600px) {
     .dashboard-products-container {
         min-height: 350px;
+    }
+
+    .min-height-200, .min-height-250 {
+        min-height: 100px !important;
+        /* Altura mínima de 200px */
+    }
+
+    .header-page-title h5, p {
+        font-size: 80%;
+    }
+
+    .header-page-image {
+        display: none;
+    }
+
+    .image-preview {
+        width: 150px;
+        height: 150px;
+    }
+
+    .btn-box, .btn-billing, .btn-purchase {
+        min-width: 200px;
+        margin-top: 0;
+    }
+
+    .title-rol {
+        font-size: 0.875rem !important;
+        font-weight: 600;
+    }
+
+    .dashboard-products-container-button {
+        margin-left: 1.5rem;
     }
 }

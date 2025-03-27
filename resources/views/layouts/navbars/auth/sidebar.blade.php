@@ -339,9 +339,29 @@
                     <span class="nav-link-text ms-1">Reporte de caja</span>
                 </a>
             </li>
+            <hr>
+            <li class="nav-item pb-2">
+                <a class="nav-link {{ Request::is('logout') ? 'active' : '' }}" href="{{ url('logout') }}"
+                    id="logout-link">
+                    <div
+                        class="icon icon-shape icon-sm shadow border: 1px border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <!-- Flecha de salida -->
+                            <path d="M16 17L21 12M21 12L16 7M21 12H9" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <!-- Puerta (opcional) -->
+                            <path d="M9 21H5C4.44772 21 4 20.5523 4 20V4C4 3.44772 4.44772 3 5 3H9"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+
+                    </div>
+                    <span class="nav-link-text ms-1">Cerrar Sesión</span>
+                </a>
+            </li>
         </ul>
     </div>
-     <!-- Boton para acceder al modal de comentarios y recomendaciones -->
+    <!-- Boton para acceder al modal de comentarios y recomendaciones -->
     <div class="sidenav-footer mx-1 mt-4">
         <div class="card card-background-feedback" id="sidenavCard">
             <div class="card-body text-start p-3 w-100">
@@ -385,6 +405,5 @@
                 });
             }
         });
-        
     </script>
 </aside>

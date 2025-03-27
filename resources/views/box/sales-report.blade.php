@@ -10,7 +10,7 @@
             <!-- Tarjeta de título -->
             <div class="card card-body blur shadow-blur mx-4 mt-n5">
                 <div class="row gx-4">
-                    <div class="col-auto my-auto">
+                    <div class="col-auto my-auto header-page-title">
                         <h5 class="mt-2">{{ __('Reporte de caja por fecha') }}</h5>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
         </div>
 
         <!-- Contenido principal -->
-        <div class="container-fluid py-4">
+        <div class="container-fluid py-4 contariner-report-sale-box">
             <div class="card">
                 <div class="card-body pt-4 p-5">
                     <!-- Botón de regreso -->
@@ -36,7 +36,7 @@
                             </div>
                             <div class="d-flex justify-content-end col-md-6">
                                 <button type="submit"
-                                    class="btn bg-gradient-info btn-md  mb-4">{{ 'Buscar' }}</button>
+                                    class="btn bg-gradient-info btn-md  mb-4 box-btn-buscar">{{ 'Buscar' }}</button>
                             </div>
                         </div>
                     </form>

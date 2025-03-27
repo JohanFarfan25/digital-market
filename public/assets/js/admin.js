@@ -229,32 +229,63 @@ if (document.querySelector('[data-toggle="widget-calendar"]')) {
   const iconNavbarSidenav = document.getElementById('iconNavbarSidenav');
   const iconSidenav = document.getElementById('iconSidenav');
   const sidenav = document.getElementById('sidenav-main');
-  let body = document.getElementsByTagName('body')[0];
-  let className = 'g-sidenav-pinned';
-
+  const body = document.getElementsByTagName('body')[0];
+  const className = 'g-sidenav-pinned';
+  
+  // Añadir overlay dinámico
+  const overlay = document.createElement('div');
+  overlay.id = 'sidenav-overlay';
+  document.body.appendChild(overlay);
+  
+  // Estilos CSS críticos (puedes moverlos a tu hoja de estilos)
+  const style = document.createElement('style');
+  style.textContent = `
+    #sidenav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      display: none;
+    }
+    #sidenav-main {
+      z-index: 9999 !important;
+      position: fixed !important;
+    }
+  `;
+  document.head.appendChild(style);
+  
   if (iconNavbarSidenav) {
     iconNavbarSidenav.addEventListener("click", toggleSidenav);
   }
-
+  
   if (iconSidenav) {
     iconSidenav.addEventListener("click", toggleSidenav);
   }
-
+  
   function toggleSidenav() {
     if (body.classList.contains(className)) {
+      // Cerrar sidenav
       body.classList.remove(className);
-      setTimeout(function () {
+      overlay.style.display = 'none';
+      setTimeout(function() {
         sidenav.classList.remove('bg-white');
       }, 100);
       sidenav.classList.remove('bg-transparent');
-
     } else {
+      // Abrir sidenav
       body.classList.add(className);
+      overlay.style.display = 'block';
       sidenav.classList.add('bg-white');
       sidenav.classList.remove('bg-transparent');
-      iconSidenav.classList.remove('d-none');
+      if (iconSidenav) iconSidenav.classList.remove('d-none');
     }
   }
+  
+  // Cerrar al hacer clic en el overlay
+  overlay.addEventListener('click', toggleSidenav);
 
 
   let referenceButtons = document.querySelector('[data-class]');

@@ -43,7 +43,7 @@
                                 <!-- Contenedor para la vista previa de la imagen-->
                                 <div class="form-group text-center">
                                     <div id="image-preview"
-                                        class="border p-2 rounded d-inline-block container-preview-image-user_view">
+                                        class="border p-2 rounded d-inline-block container-preview-image-user_view image-preview">
                                         @if (!empty($user->profile_picture))
                                             <img id="preview-image" src="{{ asset($user->profile_picture) }}" alt="Preview"
                                                 class="img-fluid preview-image">

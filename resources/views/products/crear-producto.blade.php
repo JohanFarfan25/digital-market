@@ -32,7 +32,7 @@
                                 <!-- Contenedor para la vista previa de la imagen -->
                                 <div class="form-group text-center">
                                     <div id="image-preview"
-                                        class="border p-2 rounded d-inline-block container-preview-image">
+                                        class="border p-2 rounded d-inline-block container-preview-image image-preview">
                                         <img id="preview-image" src="" alt="Preview"
                                             class="img-fluid preview-image preview-image-disabled">
                                     </div>

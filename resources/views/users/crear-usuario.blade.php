@@ -10,7 +10,7 @@
                 <div class="row gx-4">
                     <div class="col-auto my-auto">
                         <div class="h-100">
-                            <h5 class="mt-2">
+                            <h5 class="mt-2 header-page-title">
                                 {{ __('Crear Usuario') }}
                             </h5>
                         </div>
@@ -31,7 +31,7 @@
                             <div class="col-md-6">
                                 <!-- Contenedor para la vista previa -->
                                 <div class="form-group text-center">
-                                    <div id="image-preview" class="border p-2 rounded d-inline-block container-preview-image">
+                                    <div id="image-preview" class="border p-2 rounded d-inline-block container-preview-image image-preview">
                                         <img id="preview-image" src="" alt="Preview" class="img-fluid preview-image preview-image-disabled">
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="profile_picture"
                                         class="form-control-label">{{ __('Cargar Imagen') }}</label>
-                                    <div class="@error('user.profile_picture') border border-danger rounded-3 @enderror">
+                                    <div class="@error('user.profile_picture') border border-danger rounded-3 @enderror ">
                                         <input type="file" id="profile_picture" class="form-control"
                                             name="profile_picture" accept="image/*">
                                         @error('profile_picture')

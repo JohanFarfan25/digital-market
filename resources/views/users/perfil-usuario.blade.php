@@ -3,12 +3,11 @@
 @section('content')
     <div>
         <div class="container-fluid">
-            <div class="page-header min-height-200 border-radius-xl mt-4 page-header-background-linear-gradient"
-                style="background-position-y: 50%;">
+            <div class="page-header min-height-200 border-radius-xl mt-4 page-header-background-linear-gradient">
             </div>
             <div class="card card-body blur shadow-blur mx-4 mt-n6">
                 <div class="row gx-4">
-                    <div class="col-auto">
+                    <div class="col-auto header-page-image">
                         <div class="p-2 nav-link text-body font-weight-bold px-0">
                             @if (auth()->user()->profile_picture)
                                 <img src="{{ asset(auth()->user()->profile_picture) }}" alt="{{ auth()->user()->name }}"
@@ -21,7 +20,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-auto my-auto">
+                    <div class="col-auto my-auto header-page-title">
                         <div class="h-100">
                             <h5 class="mb-1">
                                 Información de Perfil
@@ -38,7 +37,7 @@
             <div class="card">
                 <div class="card-body pt-4 p-5">
                     <div style="width: 25%; text-align: left;">
-                        <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0 btn-responsive"
+                        <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-0 "
                             type="button">Regresar</a>
                     </div>
                     <form action="/perfil-usuario" method="POST" role="form text-left" enctype="multipart/form-data"
@@ -48,8 +47,7 @@
                             <div class="col-md-6">
                                 <!-- Contenedor para la vista previa de la imagen-->
                                 <div class="form-group text-center">
-                                    <div id="image-preview" class="border p-2 rounded d-inline-block"
-                                        style="width: 200px; height: 200px; overflow: hidden;">
+                                    <div id="image-preview" class="border p-2 rounded d-inline-block image-preview">
                                         @if (!empty(auth()->user()->profile_picture))
                                             <img id="preview-image" src="{{ asset(auth()->user()->profile_picture) }}"
                                                 alt="Preview" class="img-fluid preview-image">

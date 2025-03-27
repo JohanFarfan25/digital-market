@@ -10,7 +10,7 @@
                 <div class="row gx-4">
                     <div class="col-auto my-auto">
                         <div class="h-100">
-                            <h5 class="mt-2">
+                            <h5 class="mt-2 header-page-title">
                                 Usuarios
                             </h5>
                         </div>

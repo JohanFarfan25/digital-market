@@ -23,9 +23,9 @@
         <div class="card card-body blur shadow-blur mx-4 mt-n5">
             <div class="row gx-4">
                 <div class="col-auto my-auto">
-                    <div class="h-100">
-                        <h5 class="mt-2">
-                            Información de Orden de {{ $type }} Nº {{ $transaction->id }}
+                    <div class="h-100 header-page-title">
+                        <h5 class="mt-2 ">
+                            Orden de {{ $type }} Nº {{ $transaction->id }}
                         </h5>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <!-- Detalle de la transacción  -->
-                    <div class="card-body pt-4 p-3">
+                    <div class="card-body pt-4 p-3 transaccion-datail">
                         <ul class="list-group">
                             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                 <div class="d-flex align-items-center">
@@ -107,7 +107,7 @@
                                         <h6 class="mb-1 text-dark text-sm">Cliente</h6>
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-center text-danger text-dark text-sm ">
+                                <div class="d-flex align-items-center text-danger text-dark text-xsm">
                                     @if ($transaction->type == 'sale')
                                         {{ $transaction->customer ?? 'N/A' }} </br>
                                     @else
@@ -118,7 +118,7 @@
                             </li>
                             <hr>
                             <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-                                <div class="d-flex align-items-center text-danger text-dark text-sm">
+                                <div class=" text-danger text-dark text-sm">
                                     @php
                                         $colorTheme = '#82d616'; // Valor por defecto
                                         switch ($transaction->transaction_status) {
@@ -142,19 +142,23 @@
                                         }
                                     @endphp
                                     <!-- Estado de la transacción -->
-                                    <div class="text-dark p-3">
-                                        <b>Status:</b>
-                                    </div>
-                                    <div class="ms-sm-2" style="color: {{ $colorTheme }};">
-                                        <b>{{ $transaction->transaction_status }}</b>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center text-danger text-dark text-sm ">
-                                    <div class="text-dark p-3  text-sm">
-                                        <b>Total:</b>
-                                    </div>
-                                    <div class="d-flex align-items-center ms-sm-2 text-success text-sm">
-                                        <b>${{ $transaction->price }}</b>
+                                    <div class="transaccion-datailtransaction-status">
+                                        <div class="d-flex align-items-center ms-sm-2 text-success text-sm">
+                                            <div class="text-dark p-3  text-sm">
+                                                <b>Total:</b>
+                                            </div>
+                                            <div >
+                                                <b>${{ $transaction->price }}</b>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center ms-sm-2 text-success text-sm">
+                                            <div class="text-dark p-3">
+                                                <b>Status:</b>
+                                            </div>
+                                            <div class="ms-sm-2" style="color: {{ $colorTheme }};">
+                                                <b>{{ $transaction->transaction_status }}</b>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
