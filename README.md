@@ -6,7 +6,9 @@ Plataforma de comercio electrónico desarrollada con Laravel para gestión de pr
 
 ## 📸 Capturas de Pantalla
 
+![views](https://github.com/user-attachments/assets/bc1378b4-1b93-4cf8-954a-69fecd8e71d2)
 
+![view2](https://github.com/user-attachments/assets/4c95a975-3b3f-484d-88ac-c722dab67296)
 
 ---
 
