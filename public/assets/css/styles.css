@@ -24947,3 +24947,22 @@ span.flatpickr-weekday {
     border: solid #a8b8d8;
     /* Borde azul grisáceo */
 }
+
+/* Estilos para el  dashboard*/
+.dashboard-title {
+    display: flex;
+    justify-content: space-start;
+}
+
+.dashboard-title p {
+    font-size: 25px;
+    margin-left: 8px;
+}
+
+.dashboard-h6 {
+    font-weight: 700;
+}
+
+.dashboard-products-container {
+    min-height: 250px;
+}

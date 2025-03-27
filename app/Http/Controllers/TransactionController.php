@@ -127,7 +127,6 @@ class TransactionController extends Controller
     public function payment($transactionId, $message = '', $status = 'success')
     {
         $transaction = Transaction::find($transactionId);
-        $paymentTypes = PaymentType::all();
         $items = $transaction->items;
         $diferece =  $transaction->price;
         $payments = Payment::where('transaction_id', $transactionId)->get();
@@ -135,7 +134,7 @@ class TransactionController extends Controller
         $this->assingPayResultCalculateDiference($payments, $payResult, $diferece);
         $diferece = number_format($diferece, 0, ',', '.');
 
-        return getResponse('transactions.proceso-de-pago', compact('transactionId', 'transaction', 'items', 'paymentTypes', 'diferece', 'payResult'), $status, $message);
+        return getResponse('transactions.proceso-de-pago', compact('transactionId', 'transaction', 'items', 'diferece', 'payResult'), $status, $message);
     }
 
     /**

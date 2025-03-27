@@ -81,18 +81,18 @@ class SalesBoxController extends Controller
             $totals = [];
             $boxSession = $this->getSessionOpenBox();
             if (!isset($boxSession->id)) {
-                return getResponse('dashboard', compact('box'), 'error', 'No tiene caja abierta, o la caja ya feu cerrada');
+                return (new HomeController)->dashboard('error', 'No tiene caja abierta, o la caja ya feu cerrada');
             }
             $dataBox = $this->getDataSalesBox($boxSession->id ?? 0);
             if ($dataBox->status == 'error') {
-                return getResponse('dashboard', compact('box'), 'error', $dataBox->message);
+                return (new HomeController)->dashboard('error', $dataBox->message);
             }
             $box = $dataBox->box;
 
             $totals = $dataBox->totals;
             return getResponse('box.view', compact('box', 'totals'));
         } catch (\Exception $e) {
-            return getResponse('dashboard', compact('box'), 'error', $e->getMessage());
+            return (new HomeController)->dashboard('error', $e->getMessage());
         }
     }
 

@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/', [HomeController::class, 'home']);
 	Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+	Route::post('/top-diez-productos', [HomeController::class, 'getTopTenProducts'])->name('top-diez-productos');
 
 	Route::get('profile', function () {
 		return view('profile');
@@ -89,7 +90,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/cerrar-caja/{id}', [SalesBoxController::class, 'closeBox'])->name('cerrar-caja');
 	Route::get('/reporte-caja', [SalesBoxController::class, 'reporByDate'])->name('reporte-caja');
 	Route::post('/reporte-caja', [SalesBoxController::class, 'reporByDate'])->name('reporte-caja');
-	
 });
 
 
