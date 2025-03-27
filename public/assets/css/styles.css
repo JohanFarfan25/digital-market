@@ -22125,6 +22125,31 @@ hr.horizontal.gray-light {
     /* Opacidad */
 }
 
+/* Estilos para los h6 del footer */
+.sidenav-footer h6 {
+    text-align: center;
+}
+
+/* Estilos para el contenedor del  whatsapp*/
+.sidenav-footer-container-whatsapp {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    text-align: center;
+    margin-left: 10px;
+}
+
+/* Estilos para los a  del  whatsapp*/
+.sidenav-footer-container-whatsapp a {
+    font-size: 80%;
+}
+
+/* Estilos para las imagenes  del  whatsapp*/
+.sidenav-footer-container-whatsapp img {
+    width: 20px;
+    margin-right: 8px;
+}
+
 /* Estilos para el colapso de elementos dentro del sidenav */
 .g-sidenav-show .sidenav .nav-item .collapse {
     height: auto;

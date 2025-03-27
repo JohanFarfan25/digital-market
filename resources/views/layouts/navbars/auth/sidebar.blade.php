@@ -341,7 +341,24 @@
             </li>
         </ul>
     </div>
-    <hr class="horizontal dark mt-3">
+    <div class="sidenav-footer mx-1 ">
+        <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
+            <div class="card-body text-start p-1 w-100">
+                <hr>
+                <div class="docs-info p-1">
+                    <h6 class="text-white up mb-0">Nesecitas ayuda?</h6>
+                    <div class="row mt-1 p-1 sidenav-footer-container-whatsapp">
+                        <a href="https://wa.me/{{ env('PHONE_CORPORATE') }}" target="_blank"
+                            class="btn btn-white btn-sm mb-3" style="font-size: 80%;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                                alt="WhatsApp Icon">
+                            Contactanos por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const svg = document.querySelector('svg');
