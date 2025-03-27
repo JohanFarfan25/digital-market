@@ -120,11 +120,13 @@ El proyecto estará disponible en `http://127.0.0.1:8000`.
 
 
 ## ✉️ Contacto
-- **Autor:** Johan Alexander Farfán Sierra
+- **Autor:** Johan Alexander Farfán 
 - **Email:** johanfarfan25@gmail.com
 
 ## 📂 Estructura
 
+```
+.
 ├── app
 │   ├── Console
 │   ├── Exceptions
@@ -160,3 +162,4 @@ El proyecto estará disponible en `http://127.0.0.1:8000`.
 └── tests
     ├── Feature
     └── Unit
+```
