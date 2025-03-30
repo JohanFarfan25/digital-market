@@ -126,7 +126,22 @@ class HomeController extends Controller
             ->get();
 
         if ($topProducts->isEmpty()) {
-            $status = 'error';
+            $topProducts = DB::table('items')
+                ->join('transactions', 'items.transaction_id', '=', 'transactions.id')
+                ->join('products', 'items.product_id', '=', 'products.id')
+                ->select(
+                    'items.product_id',
+                    'products.name',
+                    DB::raw('SUM(items.quantity) as total_quantity') // Suma de cantidades
+                )
+                ->whereBetween('transactions.created_at', [
+                    now()->subDays(30),
+                    now()
+                ])
+                ->groupBy('items.product_id', 'products.name', 'products.image')
+                ->orderBy('total_quantity', 'desc') // Orden descendente (de mayor a menor)
+                ->take(10)
+                ->get();
         }
 
         return response()->json(['status' => $status, 'data' => $topProducts]);
