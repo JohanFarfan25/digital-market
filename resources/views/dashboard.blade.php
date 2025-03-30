@@ -408,7 +408,7 @@
                     icon: result?.status == 'error' ? 'error' : 'success',
                     text: result?.message,
                     showConfirmButton: false,
-                    timer: result?.status == 'error' ? 5000 : 4000,
+                    timer: result?.status == 'error' ? 4000 : 4000,
                 });
             }
         @endif

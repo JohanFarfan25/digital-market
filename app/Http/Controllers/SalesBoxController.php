@@ -81,11 +81,11 @@ class SalesBoxController extends Controller
             $totals = [];
             $boxSession = $this->getSessionOpenBox();
             if (!isset($boxSession->id)) {
-                return (new HomeController)->dashboard('error', 'No tiene caja abierta, o la caja ya feu cerrada');
+                return (new HomeController)->dashboard('error', 'No tiene caja abierta, o la caja ya feu cerrada', true);
             }
             $dataBox = $this->getDataSalesBox($boxSession->id ?? 0);
             if ($dataBox->status == 'error') {
-                return (new HomeController)->dashboard('error', $dataBox->message);
+                return (new HomeController)->dashboard('error', $dataBox->message, true);
             }
             $box = $dataBox->box;
 
