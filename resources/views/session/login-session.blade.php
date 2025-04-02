@@ -8,22 +8,20 @@
             <div class="page-header min-vh-75">
                 <div class="container">
                     <div class="row">
+                        <!-- Contenedor central para el formulario de inicio de sesión -->
                         <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                             <div class="card card-plain mt-6">
                                 <div class="card-header pb-0 text-left bg-transparent">
-                                    <h3 class="font-weight-bolder text-info text-gradient ">Bienvenido</h3>
+                                    <h3 class="font-weight-bolder text-info text-gradient">Bienvenido</h3>
                                 </div>
+                                <!-- Logo en formato SVG -->
                                 <div class="col-xl-4 col-lg-5 col-md-6 svg-logo-company">
                                     <svg viewBox="0 0 500 120" preserveAspectRatio="xMidYMid meet"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <text x="20" y="80" font-family="Arial, sans-serif" font-size="64"
-                                            font-weight="bold" fill="rgb(23, 193, 232)">
-                                            Digital
-                                        </text>
+                                            font-weight="bold" fill="rgb(23, 193, 232)">Digital</text>
                                         <text x="220" y="80" font-family="Arial, sans-serif" font-size="64"
-                                            font-weight="bold" fill="#8392AB">
-                                            Market
-                                        </text>
+                                            font-weight="bold" fill="#8392AB">Market</text>
                                         <text x="20" y="110" font-family="Arial, sans-serif" font-size="24" fill="#555">
                                             Optimizar, controlar y crecer
                                         </text>
@@ -31,12 +29,12 @@
                                         <rect x="204" y="50" width="12" height="20" fill="#8392AB" />
                                     </svg>
                                 </div>
-
                                 <div class="card-body">
+                                    <!-- Formulario de inicio de sesión -->
                                     <form role="form" method="POST" action="/session">
                                         @csrf
                                         <label>Correo</label>
-                                        <!-- Input para el emial-->
+                                        <!-- Campo para el correo electrónico -->
                                         <div class="mb-3">
                                             <input type="email" class="form-control" name="email" id="email"
                                                 placeholder="Email" aria-label="Email" aria-describedby="email-addon">
@@ -44,8 +42,8 @@
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <!-- Input para la contraseña-->
-                                        <label>Contaseña</label>
+                                        <label>Contraseña</label>
+                                        <!-- Campo para la contraseña con opción de visibilidad -->
                                         <div class="mb-3 position-relative">
                                             <input type="password" class="form-control pe-5" name="password" id="password"
                                                 placeholder="Password" aria-label="Password"
@@ -58,6 +56,7 @@
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
+                                        <!-- Checkbox para recordar sesión -->
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                                             <label class="form-check-label" for="rememberMe">Recordar</label>
@@ -69,15 +68,16 @@
                                     </form>
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                    <!-- Enlace para restablecer contraseña -->
                                     <small class="text-muted">¿Olvidaste tu contraseña? Restablecer tu contraseña
                                         <a href="/login/contrasena-olvidada"
                                             class="text-info text-gradient font-weight-bold">aquí</a>
                                     </small>
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                    <!-- Enlace para crear cuenta como invitado -->
                                     <a class="d-flex align-items-center me-2 active" aria-current="page"
                                         href="{{ url('crear-usuario-invitado') }}">
-                                        <!-- Ícono de mano animada -->
                                         <i class="fa fa-hand-point-right me-2 pointing-hand"></i>
                                         <i
                                             class="fa fa-user-plus opacity-6 me-1 {{ Request::is('crear-usuario-invitado') ? '' : 'text-dark' }}"></i>
@@ -86,6 +86,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Sección de imagen decorativa -->
                         <div class="col-md-6">
                             <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
                                 <div

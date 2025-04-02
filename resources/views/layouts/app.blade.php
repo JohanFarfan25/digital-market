@@ -49,7 +49,7 @@
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
-    <script src="{{ asset('assets/js/admin.min.js?v=1.0.3') }}"></script>
+    <script src="{{ asset('assets/js/admin.js?v=1.0.3') }}"></script>
 </body>
 
 </html>

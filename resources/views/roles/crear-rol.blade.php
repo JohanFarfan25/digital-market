@@ -2,6 +2,7 @@
 
 @section('content')
     <div>
+        <!-- header page de la sección-->
         <div class="container-fluid">
             <div class="page-header min-height-200 border-radius-xl mt-4 page-header-background-linear-gradient">
             </div>
@@ -20,6 +21,7 @@
         <div class="container-fluid py-4">
             <div class="card">
                 <div class="card-body pt-4 p-6 mt-4">
+                    <!-- Boton de regersar-->
                     <div style="width: 25%; text-align: left;">
                         <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-3"
                             type="button">Regresar</a>

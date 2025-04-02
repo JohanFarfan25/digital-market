@@ -3,6 +3,7 @@
 @section('content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Detalle generar de total de transacciones -->
     <div class="col-xl-12 col-sm-6 mb-xl-0 mb-4">
         <div class="col-auto my-auto p-3">
             <div class="h-100 font-weight-bolder mb-0 dashboard-title">
@@ -12,6 +13,7 @@
             </div>
         </div>
     </div>
+    <!-- Sección detalle de transacciones por tipo de transaccion -->
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
@@ -128,7 +130,7 @@
                         <h6 class="dashboard-h6">Testimonios o Reseñas</h6>
                     </div>
                     <div class="comments-container">
-                    <p class="scroll-message">Desliza hacia abajo para ver más comentarios ⬇</p>
+                        <p class="scroll-message">Desliza hacia abajo para ver más comentarios ⬇</p>
                         @foreach ($feedbacks as $feedback)
                             <div class="comment-card mb-4 p-3 border-radius-lg">
                                 <div class="d-flex align-items-center mb-2">

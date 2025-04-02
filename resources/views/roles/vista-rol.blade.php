@@ -6,6 +6,7 @@
 
 
     <div>
+       <!-- Card header -->
         <div class="container-fluid">
             <div class="page-header min-height-200 border-radius-xl mt-4 page-header-background-linear-gradient"
                 style="background-position-y: 50%;">
@@ -29,6 +30,7 @@
                         <a href="{{ url()->previous() }}" class="btn bg-gradient-secondary btn-sm mb-3 "
                             type="button">Regresar</a>
                     </div>
+                    <!-- Formulario para crear el rol -->
                     <form action="/editar-rol/{{ $role->id }}" method="POST" enctype="multipart/form-data"
                         role="form text-left">
                         @csrf
@@ -47,6 +49,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Input para los permisos-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="permissions" class="form-control-label">{{ __('Permisos') }}</label>

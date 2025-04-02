@@ -1,10 +1,12 @@
 @extends('layouts.user_type.guest')
 @section('content')
+  <!-- Contenedor principal del formulario de registro -->
     <div class="page-header section-height-75">
         <div class="container-fluid py-4">
             <div class="card">
                 <div class="card-body pt-4 p-6 mt-5">
                     <div  class="col-xl-4 col-lg-5 col-md-6 svg-logo-company">
+                     <!-- Logo "Digital Market" con eslogan -->
                         <svg viewBox="0 0 500 120" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
                             <text x="20" y="80" font-family="Arial, sans-serif" font-size="64" font-weight="bold"
                                 fill="rgb(23, 193, 232)">
@@ -22,6 +24,7 @@
                         </svg>
                     </div>
                     <div class="mt-3">
+                     <!-- Campos del formulario de creación de usuario-->
                         <form action="/crear-usuario-invitado" method="POST" enctype="multipart/form-data"
                             role="form text-left">
                             @csrf

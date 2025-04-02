@@ -518,6 +518,27 @@ function notify(e) {
         }, 4500);
 }
 
+
+/**
+ * Función para alternar la visibilidad de la contraseña en un campo de entrada
+ */
+function togglePassword() {
+    var passwordInput = document.getElementById("password");
+    var eyeIcon = document.getElementById("eyeIcon")
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    }
+}
+
+
+
 // Eventos de resize para el navbar y sidenav
 window.addEventListener("resize", navbarColorOnResize),
     window.addEventListener("resize", sidenavTypeOnResize),

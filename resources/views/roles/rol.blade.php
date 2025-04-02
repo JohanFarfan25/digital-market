@@ -45,6 +45,7 @@
                             @endrole
                         </div>
                     </div>
+                     <!-- Lista de roles -->
                     <div class="card-body px-0 pt-0 pb-2 mt-3">
                         <div class="table-responsive p-0">
                             <table id="example" class="table  align-items-center mb-0">
@@ -76,6 +77,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  <!-- Detalle de roles -->
                                     @foreach ($roles as $index => $role)
                                         <tr>
                                             <td class="text-center">
@@ -124,7 +126,7 @@
         </div>
     </div>
     <script>
-        //SECCIÓN PARA LAS RESPUESTAS SWAL ***********************
+        //Buscador  ***********************
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('searchInput');
             const tableRows = document.querySelectorAll('tbody tr');
