@@ -115,7 +115,7 @@
                                                 <p class="text-xs font-weight-bold mb-0">{{ $user->phone }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $user->rol_id }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $user->getRoleNames()->first()}}</p>
                                             </td>
                                             <td class="text-center">
                                                 <span
