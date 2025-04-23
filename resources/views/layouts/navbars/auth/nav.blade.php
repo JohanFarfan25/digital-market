@@ -44,32 +44,32 @@
             <div class="ms-md-3 pe-md-3 d-flex flex-column flex-md-row align-items-center">
                 <!-- Botón: Cerrar caja (solo para super admin) -->
                 <div class="nav-item btn-box">
-                    @role(env('ROLE_SUPER_ADMIN'))
+                     @hasanyrole([env('ROLE_SUPER_ADMIN'), 'Vendedor'])
                         <a href="{{ url('vista-caja') }}" 
                            class="{{ Request::is('vista-caja') ? 'active' : '' }} btn bg-gradient-success btn-responsive">
                             Cerrar caja
                         </a>
-                    @endrole
+                    @endhasanyrole
                 </div>
 
                 <!-- Botón: Generar Compra (solo para super admin) -->
                 <div class="nav-item btn-billing">
-                    @role(env('ROLE_SUPER_ADMIN'))
+                     @hasanyrole([env('ROLE_SUPER_ADMIN'), 'Vendedor'])
                         <a href="{{ url('facturacion-compra') }}" 
                            class="{{ Request::is('facturacion-compra') ? 'active' : '' }} btn bg-gradient-secondary btn-responsive">
                             Generar Compra
                         </a>
-                    @endrole
+                    @endhasanyrole
                 </div>
 
                 <!-- Botón: Generar Venta (solo para super admin) -->
                 <div class="nav-item btn-purchase">
-                    @role(env('ROLE_SUPER_ADMIN'))
+                     @hasanyrole([env('ROLE_SUPER_ADMIN'), 'Vendedor'])
                         <a href="{{ url('facturacion') }}" 
                            class="{{ Request::is('facturacion') ? 'active' : '' }} btn bg-gradient-info btn-responsive">
                             Generar Venta
                         </a>
-                    @endrole
+                    @endhasanyrole
                 </div>
             </div>
 
