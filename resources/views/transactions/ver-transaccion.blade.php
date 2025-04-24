@@ -170,7 +170,7 @@
                                 $paymStatus = ['completed', 'cancelled'];
                             @endphp
                             @if (!in_array($transaction->transaction_status, $paymStatus))
-                                @role(env('ROLE_SUPER_ADMIN'))
+                                @hasanyrole([env('ROLE_SUPER_ADMIN'), 'Vendedor'])
                                     <div class="d-flex justify-content-space-between">
                                         <div>
                                             <a href="/proceso-de-pago/{{ $transaction->id }}" class="mx-3 mt-2"
@@ -185,7 +185,7 @@
                                         <div>
                                         </div>
                                     </div>
-                                @endrole
+                                @endhasanyrole
                             @endif
                         </ul>
                         <hr>
